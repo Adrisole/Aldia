@@ -21,6 +21,7 @@ model Tenant {
   mpRefreshToken  String?  @map("mp_refresh_token")
   mpConectado     Boolean  @default(false) @map("mp_conectado")
   plan            String   @default("trial")
+  contadorRecibos Int      @default(0) @map("contador_recibos")
   creadoEn        DateTime @default(now()) @map("creado_en")
 
   usuarios Usuario[]
