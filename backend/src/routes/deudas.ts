@@ -2,6 +2,7 @@ import { Router } from "express";
 import { prisma } from "../lib/prisma";
 import { requireAuth } from "../middleware/auth";
 import { generarNumeroRecibo } from "../lib/recibos";
+import { cancelarPendientes, programarPendientes } from "../services/secuencia";
 
 export const deudasRouter = Router();
 deudasRouter.use(requireAuth);
@@ -79,6 +80,7 @@ deudasRouter.post("/deudas/:id/pausar", async (req, res) => {
       },
     }),
   ]);
+  await cancelarPendientes(deuda.id);
   res.json({ deuda: actualizada });
 });
 
@@ -101,6 +103,7 @@ deudasRouter.post("/deudas/:id/reanudar", async (req, res) => {
       },
     }),
   ]);
+  await programarPendientes(actualizada);
   res.json({ deuda: actualizada });
 });
 
@@ -156,6 +159,7 @@ deudasRouter.post("/deudas/:id/pago-manual", async (req, res) => {
     return { deuda: actualizada, cobro };
   });
 
+  await cancelarPendientes(deuda.id);
   res.json(resultado);
 });
 
