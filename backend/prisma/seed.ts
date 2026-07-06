@@ -169,7 +169,6 @@ async function main() {
         nombre: t.nombre,
         rubro: t.rubro,
         vocabulario: t.vocabulario,
-        mpConectado: true,
       },
     });
 

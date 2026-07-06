@@ -7,6 +7,8 @@ import { cobrosRouter } from "./routes/cobros";
 import { configRouter } from "./routes/config";
 import { deudasRouter } from "./routes/deudas";
 import { metricasRouter } from "./routes/metricas";
+import { mpOauthRouter } from "./routes/mpOauth";
+import { mpWebhookRouter } from "./routes/mpWebhook";
 
 const app = express();
 
@@ -18,11 +20,13 @@ app.get("/health", (_req, res) => {
 });
 
 app.use(authRouter);
-app.use(clientesRouter);
-app.use(deudasRouter);
-app.use(cobrosRouter);
-app.use(metricasRouter);
-app.use(configRouter);
+app.use(mpOauthRouter);
+app.use(mpWebhookRouter);
+app.use("/clientes", clientesRouter);
+app.use("/deudas", deudasRouter);
+app.use("/cobros", cobrosRouter);
+app.use("/metricas", metricasRouter);
+app.use("/config", configRouter);
 
 const PORT = Number(process.env.PORT) || 3000;
 app.listen(PORT, () => {

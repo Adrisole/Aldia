@@ -5,7 +5,7 @@ import { requireAuth } from "../middleware/auth";
 export const configRouter = Router();
 configRouter.use(requireAuth);
 
-configRouter.put("/config", async (req, res) => {
+configRouter.put("/", async (req, res) => {
   const { nombre, logoUrl, emailRespaldo } = req.body ?? {};
 
   const tenant = await prisma.tenant.update({

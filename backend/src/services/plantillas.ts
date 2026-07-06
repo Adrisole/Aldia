@@ -14,16 +14,17 @@ interface DatosMensaje {
   unidad: string;
   concepto: string;
   monto: number | string;
+  link: string | null;
 }
 
 // Sin WhatsApp real todavía (Fase 5): estos textos solo se loguean en `mensajes`.
-// Sin link de pago todavía (Fase 4, integración Mercado Pago).
 export function textoPorPaso(paso: PasoSecuencia, d: DatosMensaje): string {
+  const lineaLink = d.link ? `\n${d.link}` : "";
   switch (paso) {
     case 1:
-      return `Hola ${d.clienteNombre}, te escribimos de ${d.negocio}. Tu ${d.unidad} "${d.concepto}" (${fmt(d.monto)}) venció hoy.`;
+      return `Hola ${d.clienteNombre}, te escribimos de ${d.negocio}. Tu ${d.unidad} "${d.concepto}" (${fmt(d.monto)}) venció hoy.${lineaLink}`;
     case 2:
-      return `Hola ${d.clienteNombre}, te recordamos que tu ${d.unidad} "${d.concepto}" de ${d.negocio} sigue pendiente.`;
+      return `Hola ${d.clienteNombre}, te recordamos que tu ${d.unidad} "${d.concepto}" de ${d.negocio} sigue pendiente.${lineaLink}`;
     case 3:
       return `${d.clienteNombre}, este es el último recordatorio automático de ${d.negocio} por tu ${d.unidad} "${d.concepto}". Si ya la abonaste o querés hablar con nosotros, respondé este mensaje.`;
   }

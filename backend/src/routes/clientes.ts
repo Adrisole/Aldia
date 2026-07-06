@@ -5,7 +5,7 @@ import { requireAuth } from "../middleware/auth";
 export const clientesRouter = Router();
 clientesRouter.use(requireAuth);
 
-clientesRouter.get("/clientes", async (req, res) => {
+clientesRouter.get("/", async (req, res) => {
   const clientes = await prisma.cliente.findMany({
     where: { tenantId: req.auth!.tenantId },
     orderBy: { nombre: "asc" },
@@ -13,7 +13,7 @@ clientesRouter.get("/clientes", async (req, res) => {
   res.json({ clientes });
 });
 
-clientesRouter.post("/clientes", async (req, res) => {
+clientesRouter.post("/", async (req, res) => {
   const { nombre, whatsapp, email, referencia } = req.body ?? {};
   if (typeof nombre !== "string" || !nombre.trim()) {
     return res.status(400).json({ error: "nombre es requerido" });
@@ -31,7 +31,7 @@ clientesRouter.post("/clientes", async (req, res) => {
   res.status(201).json({ cliente });
 });
 
-clientesRouter.put("/clientes/:id", async (req, res) => {
+clientesRouter.put("/:id", async (req, res) => {
   const { nombre, whatsapp, email, referencia, activo } = req.body ?? {};
 
   const existente = await prisma.cliente.findFirst({

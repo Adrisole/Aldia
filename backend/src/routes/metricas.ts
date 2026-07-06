@@ -5,7 +5,7 @@ import { requireAuth } from "../middleware/auth";
 export const metricasRouter = Router();
 metricasRouter.use(requireAuth);
 
-metricasRouter.get("/metricas", async (req, res) => {
+metricasRouter.get("/", async (req, res) => {
   const mes = typeof req.query.mes === "string" ? req.query.mes : undefined;
   const ahora = new Date();
   const [anio, mesNum] = (mes ?? `${ahora.getUTCFullYear()}-${ahora.getUTCMonth() + 1}`)

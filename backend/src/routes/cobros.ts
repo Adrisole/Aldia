@@ -5,7 +5,7 @@ import { requireAuth } from "../middleware/auth";
 export const cobrosRouter = Router();
 cobrosRouter.use(requireAuth);
 
-cobrosRouter.get("/cobros", async (req, res) => {
+cobrosRouter.get("/", async (req, res) => {
   const { mes } = req.query;
   const where: Record<string, unknown> = { tenantId: req.auth!.tenantId };
 

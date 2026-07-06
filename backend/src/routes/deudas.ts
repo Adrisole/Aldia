@@ -15,7 +15,7 @@ function rangoDelMes(mes: string): { gte: Date; lt: Date } {
   };
 }
 
-deudasRouter.get("/deudas", async (req, res) => {
+deudasRouter.get("/", async (req, res) => {
   const { estado, mes } = req.query;
   const where: Record<string, unknown> = { tenantId: req.auth!.tenantId };
   if (typeof estado === "string") where.estado = estado;
@@ -29,7 +29,7 @@ deudasRouter.get("/deudas", async (req, res) => {
   res.json({ deudas });
 });
 
-deudasRouter.post("/deudas", async (req, res) => {
+deudasRouter.post("/", async (req, res) => {
   const { clienteId, concepto, monto, vencimiento } = req.body ?? {};
   if (typeof clienteId !== "string" || typeof concepto !== "string" || typeof monto !== "number" || !vencimiento) {
     return res.status(400).json({ error: "clienteId, concepto, monto y vencimiento son requeridos" });
@@ -58,7 +58,7 @@ async function buscarDeuda(tenantId: string, id: string) {
   return prisma.deuda.findFirst({ where: { id, tenantId } });
 }
 
-deudasRouter.post("/deudas/:id/pausar", async (req, res) => {
+deudasRouter.post("/:id/pausar", async (req, res) => {
   const deuda = await buscarDeuda(req.auth!.tenantId, req.params.id);
   if (!deuda) return res.status(404).json({ error: "Deuda no encontrada" });
   if (deuda.estado === "cobrada") {
@@ -84,7 +84,7 @@ deudasRouter.post("/deudas/:id/pausar", async (req, res) => {
   res.json({ deuda: actualizada });
 });
 
-deudasRouter.post("/deudas/:id/reanudar", async (req, res) => {
+deudasRouter.post("/:id/reanudar", async (req, res) => {
   const deuda = await buscarDeuda(req.auth!.tenantId, req.params.id);
   if (!deuda) return res.status(404).json({ error: "Deuda no encontrada" });
   if (deuda.estado !== "pausada") {
@@ -107,7 +107,7 @@ deudasRouter.post("/deudas/:id/reanudar", async (req, res) => {
   res.json({ deuda: actualizada });
 });
 
-deudasRouter.post("/deudas/:id/pago-manual", async (req, res) => {
+deudasRouter.post("/:id/pago-manual", async (req, res) => {
   const { medio } = req.body ?? {};
   if (medio !== "transferencia" && medio !== "efectivo") {
     return res.status(400).json({ error: "medio debe ser 'transferencia' o 'efectivo'" });
@@ -163,7 +163,7 @@ deudasRouter.post("/deudas/:id/pago-manual", async (req, res) => {
   res.json(resultado);
 });
 
-deudasRouter.get("/deudas/:id/mensajes", async (req, res) => {
+deudasRouter.get("/:id/mensajes", async (req, res) => {
   const deuda = await buscarDeuda(req.auth!.tenantId, req.params.id);
   if (!deuda) return res.status(404).json({ error: "Deuda no encontrada" });
 

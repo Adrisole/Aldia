@@ -2,6 +2,7 @@ import { Worker } from "bullmq";
 import { JobSecuencia, NOMBRE_COLA_SECUENCIA, redisConnection } from "../lib/queue";
 import { prisma } from "../lib/prisma";
 import { textoPorPaso, TIPO_POR_PASO } from "../services/plantillas";
+import { asegurarPreferencia, linkDePago } from "../services/preferencias";
 
 export function iniciarSecuenciaWorker(): Worker<JobSecuencia> {
   const worker = new Worker<JobSecuencia>(
@@ -21,6 +22,8 @@ export function iniciarSecuenciaWorker(): Worker<JobSecuencia> {
         return;
       }
 
+      const mpPreferenceId = await asegurarPreferencia(deuda, deuda.tenant);
+
       const vocabulario = deuda.tenant.vocabulario as { unidad: string; persona: string };
       const contenido = textoPorPaso(paso, {
         negocio: deuda.tenant.nombre,
@@ -28,6 +31,7 @@ export function iniciarSecuenciaWorker(): Worker<JobSecuencia> {
         unidad: vocabulario.unidad,
         concepto: deuda.concepto,
         monto: deuda.monto.toString(),
+        link: mpPreferenceId ? linkDePago(mpPreferenceId) : null,
       });
 
       await prisma.$transaction([

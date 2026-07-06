@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 import { api } from "../lib/api";
 import { useAuth } from "../context/AuthContext";
 import type { Tenant } from "../lib/types";
@@ -8,6 +8,10 @@ export function ConfigView({ tenant }: { tenant: Tenant }) {
   const [emailRespaldo, setEmailRespaldo] = useState(tenant.emailRespaldo ?? "");
   const [guardando, setGuardando] = useState(false);
   const [guardado, setGuardado] = useState(false);
+  const [conectandoMP, setConectandoMP] = useState(false);
+
+  const params = new URLSearchParams(window.location.search);
+  const mpResultado = params.get("mp");
 
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -24,6 +28,25 @@ export function ConfigView({ tenant }: { tenant: Tenant }) {
       setGuardando(false);
     }
   };
+
+  const conectarMercadoPago = async () => {
+    setConectandoMP(true);
+    try {
+      const data = await api<{ url: string }>("/mp/oauth/iniciar");
+      window.location.href = data.url;
+    } catch {
+      setConectandoMP(false);
+    }
+  };
+
+  useEffect(() => {
+    if (!mpResultado) return;
+    recargarTenant();
+    const url = new URL(window.location.href);
+    url.searchParams.delete("mp");
+    window.history.replaceState({}, "", url.toString());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -68,14 +91,34 @@ export function ConfigView({ tenant }: { tenant: Tenant }) {
       <section className="rounded-2xl bg-white border border-stone-200 p-4 lg:col-span-2">
         <h2 className="font-semibold mb-1">Cobros con Mercado Pago</h2>
         <p className="text-xs text-stone-400 max-w-md mb-3">
-          La conexión con Mercado Pago (OAuth) se habilita en la próxima fase de construcción.
+          La plata va directo a tu cuenta de Mercado Pago. AlDía nunca la toca: solo genera los links de pago y detecta cuándo se acreditan.
         </p>
-        <span
-          className="inline-block text-xs px-3 py-1.5 rounded-full font-medium"
-          style={tenant.mpConectado ? { color: "#047857", background: "#D1FAE5" } : { color: "#78716C", background: "#F5F5F4" }}
-        >
-          {tenant.mpConectado ? "Conectado" : "No conectado"}
-        </span>
+
+        {mpResultado === "conectado" && (
+          <p className="text-xs text-emerald-700 mb-3">Cuenta de Mercado Pago conectada correctamente.</p>
+        )}
+        {mpResultado === "error" && (
+          <p className="text-xs text-red-600 mb-3">No se pudo completar la conexión con Mercado Pago. Probá de nuevo.</p>
+        )}
+
+        <div className="flex items-center gap-3">
+          <span
+            className="inline-block text-xs px-3 py-1.5 rounded-full font-medium"
+            style={tenant.mpConectado ? { color: "#047857", background: "#D1FAE5" } : { color: "#78716C", background: "#F5F5F4" }}
+          >
+            {tenant.mpConectado ? "Conectado" : "No conectado"}
+          </span>
+          {!tenant.mpConectado && (
+            <button
+              onClick={conectarMercadoPago}
+              disabled={conectandoMP}
+              className="text-sm px-4 py-2 rounded-xl text-white font-medium disabled:opacity-60"
+              style={{ background: "#047857" }}
+            >
+              {conectandoMP ? "Redirigiendo..." : "Conectar con Mercado Pago"}
+            </button>
+          )}
+        </div>
       </section>
     </div>
   );
