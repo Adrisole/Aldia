@@ -12,6 +12,13 @@ const DATA_INICIAL = {
     rubro: "Gimnasio",
     unidad: "cuota",
     persona: "alumno",
+    config: {
+      whatsapp: "+54 9 376 412-8830",
+      email: "hola@energiafitness.com.ar",
+      mpConectado: true,
+      mpCuenta: "ENERGIA FITNESS SRL",
+      inicial: "EF",
+    },
     cobros: [
       { id: "R-0148", nombre: "Diego Sosa", concepto: "Cuota junio", monto: 45000, fecha: "10/06 · 11:20", medio: "Mercado Pago", via: "automático" },
       { id: "R-0147", nombre: "Valentina Ríos", concepto: "Cuota junio", monto: 45000, fecha: "06/06 · 18:05", medio: "Mercado Pago", via: "automático" },
@@ -75,6 +82,13 @@ const DATA_INICIAL = {
     rubro: "Inmobiliaria",
     unidad: "alquiler",
     persona: "inquilino",
+    config: {
+      whatsapp: "+54 9 376 455-2190",
+      email: "administracion@delvallepropiedades.com.ar",
+      mpConectado: true,
+      mpCuenta: "DEL VALLE PROPIEDADES SA",
+      inicial: "DV",
+    },
     cobros: [
       { id: "R-0093", nombre: "Jorge Insaurralde", concepto: "Alquiler junio · Ayacucho 1180 1°C", monto: 590000, fecha: "14/06 · 09:12", medio: "Mercado Pago", via: "automático" },
       { id: "R-0092", nombre: "Marcos Leiva", concepto: "Alquiler junio · San Lorenzo 855 PB", monto: 520000, fecha: "05/06 · 16:40", medio: "Mercado Pago", via: "automático" },
@@ -251,7 +265,7 @@ export default function AlDia() {
 
         {/* ── Selector de vista ── */}
         <div className="flex gap-1 mb-4 border-b border-stone-200">
-          {[["deudas", "Deudas"], ["cobros", "Cobros y recibos"]].map(([k, label]) => (
+          {[["deudas", "Deudas"], ["cobros", "Cobros y recibos"], ["config", "Configuración"]].map(([k, label]) => (
             <button
               key={k}
               onClick={() => setVista(k)}
@@ -348,6 +362,92 @@ export default function AlDia() {
           </section>
         </div>
         </>
+        )}
+
+        {vista === "config" && (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          {/* Identidad del negocio */}
+          <section className="rounded-2xl bg-white border border-stone-200 p-4">
+            <h2 className="font-semibold mb-1">Identidad del negocio</h2>
+            <p className="text-xs text-stone-400 mb-4">Esto aparece en cada mensaje y en cada recibo que reciben tus clientes.</p>
+
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center text-white text-xl font-bold shrink-0" style={{ background: "#065F46" }}>
+                {v.config.inicial}
+              </div>
+              <div>
+                <button className="text-sm px-3 py-1.5 rounded-xl border border-stone-200 bg-white font-medium hover:bg-stone-50">
+                  Subir logo
+                </button>
+                <p className="text-[11px] text-stone-400 mt-1">PNG o JPG · fondo claro recomendado</p>
+              </div>
+            </div>
+
+            <label className="block text-xs font-medium text-stone-500 mb-1">Nombre del negocio</label>
+            <input readOnly value={v.negocio} className="w-full text-sm px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 mb-3" />
+
+            <label className="block text-xs font-medium text-stone-500 mb-1">Rubro</label>
+            <input readOnly value={v.rubro} className="w-full text-sm px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 mb-3" />
+            <p className="text-[11px] text-stone-400">El rubro adapta el vocabulario del sistema: {v.unidad}s, {v.persona}s, y el tono de los mensajes.</p>
+          </section>
+
+          {/* Canales de comunicación */}
+          <section className="rounded-2xl bg-white border border-stone-200 p-4">
+            <h2 className="font-semibold mb-1">Canales de envío</h2>
+            <p className="text-xs text-stone-400 mb-4">Desde dónde salen los recordatorios y recibos.</p>
+
+            <label className="block text-xs font-medium text-stone-500 mb-1">WhatsApp del negocio</label>
+            <div className="flex items-center gap-2 mb-1">
+              <input readOnly value={v.config.whatsapp} className="flex-1 text-sm px-3 py-2 rounded-xl border border-stone-200 bg-stone-50" />
+              <span className="text-xs px-2 py-1 rounded-full font-medium" style={{ color: "#047857", background: "#D1FAE5" }}>Verificado</span>
+            </div>
+            <p className="text-[11px] text-stone-400 mb-4">Número conectado a la API oficial de WhatsApp Business. Tus clientes ven el nombre y logo de tu negocio, no un número desconocido.</p>
+
+            <label className="block text-xs font-medium text-stone-500 mb-1">Email de respaldo</label>
+            <input readOnly value={v.config.email} className="w-full text-sm px-3 py-2 rounded-xl border border-stone-200 bg-stone-50 mb-1" />
+            <p className="text-[11px] text-stone-400">Si un cliente no tiene WhatsApp, el recibo sale por acá. También recibís vos el resumen semanal.</p>
+          </section>
+
+          {/* Mercado Pago */}
+          <section className="rounded-2xl bg-white border border-stone-200 p-4 lg:col-span-2">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h2 className="font-semibold mb-1">Cobros con Mercado Pago</h2>
+                <p className="text-xs text-stone-400 max-w-md">
+                  La plata va directo a tu cuenta de Mercado Pago de siempre. AlDía nunca toca tus fondos: solo genera los links de pago y detecta cuándo se acreditan.
+                </p>
+              </div>
+              {v.config.mpConectado ? (
+                <div className="text-right">
+                  <span className="inline-block text-xs px-3 py-1.5 rounded-full font-medium" style={{ color: "#047857", background: "#D1FAE5" }}>
+                    Conectado · {v.config.mpCuenta}
+                  </span>
+                  <p className="text-[11px] text-stone-400 mt-1">
+                    <button className="underline">Desconectar</button>
+                  </p>
+                </div>
+              ) : (
+                <button className="text-sm px-4 py-2 rounded-xl text-white font-medium" style={{ background: "#047857" }}>
+                  Conectar con Mercado Pago
+                </button>
+              )}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4 text-xs text-stone-500">
+              <div className="rounded-xl bg-stone-50 p-3">
+                <p className="font-semibold text-stone-700 mb-1">1 · Autorizás una vez</p>
+                Tocás el botón, entrás a tu cuenta de Mercado Pago y autorizás. Sin copiar tokens ni claves a mano.
+              </div>
+              <div className="rounded-xl bg-stone-50 p-3">
+                <p className="font-semibold text-stone-700 mb-1">2 · Cada deuda, su link</p>
+                AlDía genera un link de pago por cada {v.unidad} vencida, con el monto y el nombre del {v.persona} ya cargados.
+              </div>
+              <div className="rounded-xl bg-stone-50 p-3">
+                <p className="font-semibold text-stone-700 mb-1">3 · Se concilia solo</p>
+                Cuando el pago se acredita, la secuencia se frena, el cobro se registra y el recibo sale automáticamente.
+              </div>
+            </div>
+          </section>
+        </div>
         )}
 
         {vista === "cobros" && (

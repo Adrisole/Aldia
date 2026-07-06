@@ -1,0 +1,126 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Negocios (tenants)
+model Tenant {
+  id              String   @id @default(uuid()) @db.Uuid
+  nombre          String
+  rubro           String
+  vocabulario     Json
+  logoUrl         String?  @map("logo_url")
+  whatsappPhoneId String?  @map("whatsapp_phone_id")
+  emailRespaldo   String?  @map("email_respaldo")
+  mpUserId        String?  @map("mp_user_id")
+  mpAccessToken   String?  @map("mp_access_token")
+  mpRefreshToken  String?  @map("mp_refresh_token")
+  mpConectado     Boolean  @default(false) @map("mp_conectado")
+  plan            String   @default("trial")
+  contadorRecibos Int      @default(0) @map("contador_recibos")
+  creadoEn        DateTime @default(now()) @map("creado_en")
+
+  usuarios Usuario[]
+  clientes Cliente[]
+  deudas   Deuda[]
+  cobros   Cobro[]
+  mensajes Mensaje[]
+
+  @@map("tenants")
+}
+
+// Usuarios del panel (auth simple, uno o mas por tenant)
+model Usuario {
+  id           String   @id @default(uuid()) @db.Uuid
+  tenantId     String   @map("tenant_id") @db.Uuid
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  creadoEn     DateTime @default(now()) @map("creado_en")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+
+  @@map("usuarios")
+}
+
+// Clientes del negocio (deudores)
+model Cliente {
+  id         String  @id @default(uuid()) @db.Uuid
+  tenantId   String  @map("tenant_id") @db.Uuid
+  nombre     String
+  whatsapp   String?
+  email      String?
+  referencia String?
+  activo     Boolean @default(true)
+
+  tenant Tenant  @relation(fields: [tenantId], references: [id])
+  deudas Deuda[]
+
+  @@unique([tenantId, whatsapp])
+  @@map("clientes")
+}
+
+// Deudas (la unidad de trabajo del sistema)
+model Deuda {
+  id             String   @id @default(uuid()) @db.Uuid
+  tenantId       String   @map("tenant_id") @db.Uuid
+  clienteId      String   @map("cliente_id") @db.Uuid
+  concepto       String
+  monto          Decimal  @db.Decimal(12, 2)
+  vencimiento    DateTime @db.Date
+  estado         String   @default("pendiente")
+  // pendiente | en_secuencia | respondio_manual | pausada | cobrada | incobrable
+  pasoSecuencia  Int      @default(0) @map("paso_secuencia")
+  mpPreferenceId String?  @map("mp_preference_id")
+  mpPaymentId    String?  @map("mp_payment_id")
+  creadoEn       DateTime @default(now()) @map("creado_en")
+
+  tenant   Tenant    @relation(fields: [tenantId], references: [id])
+  cliente  Cliente   @relation(fields: [clienteId], references: [id])
+  cobros   Cobro[]
+  mensajes Mensaje[]
+
+  @@map("deudas")
+}
+
+// Cobros registrados (historico inmutable)
+model Cobro {
+  id                 String   @id @default(uuid()) @db.Uuid
+  tenantId           String   @map("tenant_id") @db.Uuid
+  deudaId            String   @map("deuda_id") @db.Uuid
+  numeroRecibo       String   @map("numero_recibo")
+  monto              Decimal  @db.Decimal(12, 2)
+  medio              String
+  via                String
+  mpPaymentId        String?  @unique @map("mp_payment_id")
+  reciboEnviadoWa    Boolean  @default(false) @map("recibo_enviado_wa")
+  reciboEnviadoEmail Boolean  @default(false) @map("recibo_enviado_email")
+  cobradoEn          DateTime @default(now()) @map("cobrado_en")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+  deuda  Deuda  @relation(fields: [deudaId], references: [id])
+
+  @@unique([tenantId, numeroRecibo])
+  @@map("cobros")
+}
+
+// Mensajes enviados/recibidos (auditoria y timeline del chat)
+model Mensaje {
+  id            String   @id @default(uuid()) @db.Uuid
+  tenantId      String   @map("tenant_id") @db.Uuid
+  deudaId       String   @map("deuda_id") @db.Uuid
+  direccion     String // saliente | entrante | sistema
+  tipo          String // aviso_1 | recordatorio_2 | ultimo_3 | recibo | respuesta_cliente | resumen_semanal | sistema
+  contenido     String
+  waMessageId   String?  @map("wa_message_id")
+  estadoEntrega String?  @map("estado_entrega")
+  creadoEn      DateTime @default(now()) @map("creado_en")
+
+  tenant Tenant @relation(fields: [tenantId], references: [id])
+  deuda  Deuda  @relation(fields: [deudaId], references: [id])
+
+  @@map("mensajes")
+}
