@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.num-hero {
+  font-family: "Archivo Black", "Archivo", sans-serif;
+  letter-spacing: -0.02em;
+}
+.fila:hover {
+  background: #fafaf8;
+}
+button:focus-visible,
+.fila:focus-visible {
+  outline: 2px solid #047857;
+  outline-offset: 2px;
+}
+body {
+  font-family: "Archivo", system-ui, sans-serif;
+}
