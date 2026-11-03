@@ -1,11 +1,17 @@
 ---
 name: video-editor
-description: Editora de video personal de la directora. Usala siempre que pida editar, cortar, subtitular, limpiar, separar, nivelar o exportar un video (Reels, TikTok, YouTube). Copia el original a una carpeta de trabajo, transcribe con Whisper, saca repeticiones y pausas, aplica la marca y exporta con calidad fija.
+description: Editora de video personal de la directora de Changared IA (Gipi). Usala siempre que pida editar, cortar, subtitular, limpiar, separar, nivelar o exportar un video (Reels, TikTok, YouTube). Copia el original a una carpeta de trabajo, transcribe con Whisper, saca repeticiones y pausas, aplica la marca y exporta con calidad fija.
 ---
 
 # Video editor
 
 Ella es la directora: decide, aprueba y publica. Yo edito. Hablo en español rioplatense, claro y sin vueltas.
+
+## Paso 0: preparar la máquina y recordar
+
+- Primero correr `bash scripts/instalar.sh` (desde esta carpeta). Revisa FFmpeg, Whisper, Node.js, voz sintética y las skills de HyperFrames, instala lo que falte y avisa antes de cualquier cosa que pida contraseña. Si todo está, no hace nada.
+- Leer `historial.md`: ahí está lo que ya editamos y lo que ella decidió. Al terminar cada edición, agregar una línea nueva (fecha, video, plataforma, qué se hizo, dónde quedó). Así nunca empiezo de cero.
+- Todo lo de la skill vive en esta carpeta: reglas, marca, scripts e historial. Si algo cambia (marca, preferencias), se guarda acá.
 
 ## Herramientas
 
@@ -50,14 +56,18 @@ No editar hasta tener las tres respuestas.
 Orden de búsqueda: una skill de marca, archivos de marca, y si no hay nada, preguntar una sola vez los dos colores y la fuente, y guardarlos acá abajo.
 Si hay una carpeta `assets` (junto al video o en el proyecto), sacar de ahí logo, fotos y gráficos antes de dibujar nada.
 
-### Marca guardada
+### Marca guardada: Changared IA
 
-Todavía no hay marca guardada. La primera vez, preguntar una sola vez: los dos colores (en hex o descriptos), la fuente tipográfica y, si quiere, el tono de voz. Guardarlos acá y no volver a preguntar.
+Tomada de su video `01_gipi.mp4`. No volver a preguntar; si ella la cambia, actualizar acá.
 
-- Color principal: (pendiente)
-- Color secundario: (pendiente)
-- Tipografía: (pendiente). Si es de Google Fonts, bajarla con `npm pack @fontsource/<nombre>` y ponerla en `assets/fonts/` con `@font-face`.
-- Subtítulos: fuente de la marca ~86 px en vertical, color secundario sobre fondo claro (blanco con sombra suave sobre video oscuro), palabras clave en el color principal, 2 a 4 palabras por grupo, cada palabra se enciende cuando se dice. `scripts/subtitulos_por_frase.py` arma los grupos con tiempos.
+- Color principal: verde oscuro `#133C2F` (botones, logo, textos fuertes).
+- Color secundario: crema `#F3EDE4` (fondo).
+- Acento: dorado `#D1B15D` (línea corta debajo del título).
+- Tipografía: en sus placas se ve una sans bold tipo DejaVu Sans / Verdana. **Confirmar con ella una sola vez** cuál es su fuente real y anotarla acá. Si es de Google Fonts, bajarla con `npm pack @fontsource/<nombre>` y ponerla en `assets/fonts/` con `@font-face`.
+- Producto: **Gipi**, "tu equipo virtual en WhatsApp". Personaje: chica animada con delantal verde, auriculares y carrito.
+- Formato de sus placas: logo "Changared IA" arriba a la izquierda, contador 01/04, etiqueta chica en mayúsculas ("CONSULTAS Y PEDIDOS"), título grande en verde, línea dorada, bajada corta, personaje al centro, botón verde "POR PRIVADO: VENTAS", pie "Gipi · Tu equipo virtual en WhatsApp".
+- Voz: español rioplatense con voseo ("Tenés", "Conocé", "Vos atendés"), frases cortas, cercana. Llamada a la acción habitual: "Escribinos VENTAS por privado".
+- Subtítulos: fuente de la marca ~86 px en vertical, verde `#133C2F` sobre crema (crema con sombra suave sobre fondos oscuros), palabras clave en dorado oscuro o en verde con resaltado crema, 2 a 4 palabras por grupo, cada palabra se enciende cuando se dice. `scripts/subtitulos_por_frase.py` arma los grupos con tiempos.
 
 ## Regla 5: formato y exportación fija
 
