@@ -64,6 +64,7 @@ Tomada de su video `01_gipi.mp4`. No volver a preguntar; si ella la cambia, actu
 - Color secundario: crema `#F3EDE4` (fondo).
 - Acento: dorado `#D1B15D` (línea corta debajo del título).
 - Tipografía: en sus placas se ve una sans bold tipo DejaVu Sans / Verdana. **Confirmar con ella una sola vez** cuál es su fuente real y anotarla acá. Si es de Google Fonts, bajarla con `npm pack @fontsource/<nombre>` y ponerla en `assets/fonts/` con `@font-face`.
+- Archivos: `assets/gipi.png` (Gipi recortada, fondo transparente) y `assets/logo.png` (ícono de Changared IA). Para videos de placas como `01_gipi`, partir de `scripts/plantilla_placas_gipi.py` (cambiar textos en `ESCENAS` y correr `python3 scripts/plantilla_placas_gipi.py <carpeta-proyecto>`).
 - Producto: **Gipi**, "tu equipo virtual en WhatsApp". Personaje: chica animada con delantal verde, auriculares y carrito.
 - Formato de sus placas: logo "Changared IA" arriba a la izquierda, contador 01/04, etiqueta chica en mayúsculas ("CONSULTAS Y PEDIDOS"), título grande en verde, línea dorada, bajada corta, personaje al centro, botón verde "POR PRIVADO: VENTAS", pie "Gipi · Tu equipo virtual en WhatsApp".
 - Voz: español rioplatense con voseo ("Tenés", "Conocé", "Vos atendés"), frases cortas, cercana. Llamada a la acción habitual: "Escribinos VENTAS por privado".
