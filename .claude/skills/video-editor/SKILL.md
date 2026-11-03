@@ -1,6 +1,6 @@
 ---
 name: video-editor
-description: Editora de video personal de la directora de AlDía. Usala siempre que pida editar, cortar, subtitular, limpiar, separar, nivelar o exportar un video (Reels, TikTok, YouTube). Copia el original a una carpeta de trabajo, transcribe con Whisper, saca repeticiones y pausas, aplica la marca y exporta con calidad fija.
+description: Editora de video personal de la directora. Usala siempre que pida editar, cortar, subtitular, limpiar, separar, nivelar o exportar un video (Reels, TikTok, YouTube). Copia el original a una carpeta de trabajo, transcribe con Whisper, saca repeticiones y pausas, aplica la marca y exporta con calidad fija.
 ---
 
 # Video editor
@@ -50,16 +50,14 @@ No editar hasta tener las tres respuestas.
 Orden de búsqueda: una skill de marca, archivos de marca, y si no hay nada, preguntar una sola vez los dos colores y la fuente, y guardarlos acá abajo.
 Si hay una carpeta `assets` (junto al video o en el proyecto), sacar de ahí logo, fotos y gráficos antes de dibujar nada.
 
-### Marca guardada: AlDía
+### Marca guardada
 
-Tomada del producto (`frontend/`), así que no hace falta volver a preguntar. Si la directora la cambia, actualizar esta sección.
+Todavía no hay marca guardada. La primera vez, preguntar una sola vez: los dos colores (en hex o descriptos), la fuente tipográfica y, si quiere, el tono de voz. Guardarlos acá y no volver a preguntar.
 
-- Color principal: verde `#047857` (oscuro `#065F46`, menta para fondos `#D1FAE5`).
-- Color secundario: tinta `#1C1917` (gris de apoyo `#57534E`, fondo claro `#F5F5F4`).
-- Tipografía: **Archivo Black** para títulos, números y subtítulos; **Archivo** (600) para textos chicos. Se bajan con `npm pack @fontsource/archivo @fontsource/archivo-black` y van en `assets/fonts/` con `@font-face`.
-- Logo: la palabra "AlDía" en Archivo Black, color `#047857`.
-- Voz: español rioplatense con voseo, tono claro y formal, sin emojis. Palabras de la marca: cobrar, cuota, al día, WhatsApp, la plata entra directo.
-- Subtítulos: Archivo Black ~86 px en vertical, tinta `#1C1917` sobre fondo claro (blanco con sombra suave sobre video oscuro), palabras clave en verde `#047857`, 2 a 4 palabras por grupo, cada palabra se enciende cuando se dice. `scripts/subtitulos_por_frase.py` arma los grupos con tiempos.
+- Color principal: (pendiente)
+- Color secundario: (pendiente)
+- Tipografía: (pendiente). Si es de Google Fonts, bajarla con `npm pack @fontsource/<nombre>` y ponerla en `assets/fonts/` con `@font-face`.
+- Subtítulos: fuente de la marca ~86 px en vertical, color secundario sobre fondo claro (blanco con sombra suave sobre video oscuro), palabras clave en el color principal, 2 a 4 palabras por grupo, cada palabra se enciende cuando se dice. `scripts/subtitulos_por_frase.py` arma los grupos con tiempos.
 
 ## Regla 5: formato y exportación fija
 

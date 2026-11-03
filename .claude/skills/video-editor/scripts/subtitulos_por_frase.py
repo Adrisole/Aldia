@@ -1,6 +1,6 @@
 import sys, json, re
 tsv, out = sys.argv[1], sys.argv[2]
-KEY = {"deben", "whatsapp", "plata", "aldía"}
+KEY = set(sys.argv[3].lower().split(",")) if len(sys.argv) > 3 else set()  # palabras clave separadas por coma
 groups, words = [], []
 for gi, line in enumerate(open(tsv, encoding="utf-8")):
     s, d, text = line.rstrip("\n").split("\t")
