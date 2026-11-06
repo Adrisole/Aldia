@@ -124,3 +124,8 @@ Próximos artículos/páginas sugeridos:
 1. ¿Cuánto cuesta una página web en Argentina? (con los precios reales)
 2. Bot de WhatsApp para tu negocio (relacionado con ChangaRed)
 3. Sistema de turnos online / software a medida
+
+## Artículo de precios
+- `elementor/articulo-precios.html` → página nueva, slug `cuanto-cuesta-una-pagina-web`.
+- Título SEO: "¿Cuánto cuesta una página web en Argentina? (2026)" · Descripción: "Landing US$ 100, página web desde US$ 250 y tienda online desde US$ 450. Qué incluye cada opción y de qué depende el precio. Atómica Pro, Posadas."
+- Palabra clave principal: "cuánto cuesta una página web en Argentina".
