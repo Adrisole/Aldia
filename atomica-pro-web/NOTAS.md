@@ -104,7 +104,7 @@ Página aparte "Qué hacemos": `elementor/que-hacemos.html` (slug `que-hacemos`)
   - [ ] Tipo de cambio para pagar en pesos.
   - [ ] Seña (sí/no, cuánto) y cuándo se paga el saldo.
   - [ ] Rondas de cambios incluidas.
-  - [x] Dominio: se paga por año. Hosting: según cómo prefiera el cliente (puesto en Términos y en el artículo).
+  - [x] Dominio: se paga por año. Hosting: por mes o por plan con descuento según el plan (puesto en Términos y en el artículo).
   - [ ] Si se usa Google Analytics / Meta Pixel (para la parte de cookies).
 
 ## SEO (noviembre 2026)
