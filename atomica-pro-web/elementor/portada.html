@@ -5,7 +5,7 @@
 .ap *{box-sizing:border-box}
 .ap canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
 .ap-top{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,5vw,56px)}
-.ap-logo{font:400 22px "Anton",sans-serif;letter-spacing:.01em;text-transform:uppercase}
+.ap-logo{display:flex;align-items:center;font:400 22px "Anton",sans-serif;letter-spacing:.01em;text-transform:uppercase}
 .ap-logo small{font:500 10px "DM Mono",monospace;letter-spacing:.15em;opacity:.7;margin-left:4px}
 .ap-top a{font:500 12px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--tx);text-decoration:none;opacity:.8}
 .ap-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px clamp(20px,5vw,56px) 40px}
@@ -39,11 +39,14 @@
 .ap-eyebrow,.ap-step,.ap-top a,.ap-tag,.ap-logo small{font-family:"DM Mono",monospace!important}
 .ap-eyebrow{color:#A7DCC5!important}.ap-step{color:rgba(243,230,207,.45)!important}.ap-step.on{color:#F3E6CF!important}
 .ap h1,.ap p{margin-left:auto!important;margin-right:auto!important}
+
+/* Logo: el JPG tiene fondo, por eso va en un círculo claro */
+.logo-ico{width:40px!important;height:40px!important;border-radius:50%;object-fit:cover;background:#F3E6CF;margin-right:10px;vertical-align:middle;flex:none}
 </style>
 <section class="ap" id="ap">
   <canvas aria-hidden="true"></canvas>
   <header class="ap-top">
-    <div class="ap-logo">Atómica<small>PRO</small></div>
+    <div class="ap-logo"><img class="logo-ico" src="https://atomica.click/wp-content/uploads/2026/10/cropped-Graphic_icon_with_letter_A_d227c522_2K-1.jpg" alt="" width="40" height="40">Atómica<small>PRO</small></div>
     <a href="#que-hacemos">Qué hacemos</a>
   </header>
   <div class="ap-hero">

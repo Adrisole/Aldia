@@ -10,7 +10,7 @@
 .aq-label{font:500 11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--nd);margin:0 0 18px}
 .aq-pending{color:rgba(243,230,207,.45);font-style:italic;border-bottom:1px dashed rgba(243,230,207,.3)}
 .aq-top{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,5vw,48px)}
-.aq-logo{font:400 22px "Anton",sans-serif;text-transform:uppercase;text-decoration:none}
+.aq-logo{display:flex;align-items:center;font:400 22px "Anton",sans-serif;text-transform:uppercase;text-decoration:none}
 .aq-logo small{font:500 10px "DM Mono",monospace;letter-spacing:.15em;opacity:.7;margin-left:4px}
 .aq-top nav a{font:500 12px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.8}
 
@@ -92,6 +92,9 @@
 .aq-head h1 .t2,.aq-sec h2 em,.aq-item h3,.aq-item h3 a,.aq-steps strong,.aq-faq summary{font-family:"Instrument Serif",serif!important;font-style:italic!important}
 .aq-label,.aq-price,.aq-foot,.aq-top nav a{font-family:"DM Mono",monospace!important}
 .aq canvas{position:absolute!important}
+
+/* Logo: el JPG tiene fondo, por eso va en un círculo claro */
+.logo-ico{width:40px!important;height:40px!important;border-radius:50%;object-fit:cover;background:#F3E6CF;margin-right:10px;vertical-align:middle;flex:none}
 </style>
 <script type="application/ld+json">
 {
@@ -128,7 +131,7 @@
 <canvas aria-hidden="true"></canvas>
 
 <header class="aq-top">
-  <a class="aq-logo" href="https://atomica.click/">Atómica<small>PRO</small></a>
+  <a class="aq-logo" href="https://atomica.click/"><img class="logo-ico" src="https://atomica.click/wp-content/uploads/2026/10/cropped-Graphic_icon_with_letter_A_d227c522_2K-1.jpg" alt="" width="40" height="40">Atómica<small>PRO</small></a>
   <nav><a href="https://wa.me/5493764240063">WhatsApp</a></nav>
 </header>
 
