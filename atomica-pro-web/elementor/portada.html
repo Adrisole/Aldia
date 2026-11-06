@@ -83,7 +83,7 @@ function size(){dpr=Math.min(devicePixelRatio||1,2);W=root.clientWidth;H=root.cl
 function center(){const r=cta.querySelector('.ap-node').getBoundingClientRect(),b=root.getBoundingClientRect();return{x:r.left-b.left+r.width/2,y:r.top-b.top+r.height/2};}
 function draw(){
   pull+=(pullTarget-pull)*.12;ctx.clearRect(0,0,W,H);const c=center(),L=120;
-  for(const p of nodes){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
+  for(const p of nodes){const k=reduce?.4:1;p.x+=p.vx*k;p.y+=p.vy*k;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
   for(let i=0;i<nodes.length;i++){const a=nodes[i];
     for(let j=i+1;j<nodes.length;j++){const b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){ctx.strokeStyle=`rgba(167,220,197,${(1-d/L)*.3})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
     if(mouse){const d=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(d<L*1.5){ctx.strokeStyle=`rgba(167,220,197,${(1-d/(L*1.5))*.6})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}

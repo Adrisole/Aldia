@@ -68,7 +68,7 @@ function size(){const d=Math.min(devicePixelRatio||1,2);W=sec.clientWidth;H=sec.
 sec.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=sec.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top};});
 sec.addEventListener('pointerleave',()=>mouse=null);
 function draw(){ctx.clearRect(0,0,W,H);const L=120,R=180;
- for(const p of ns){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
+ for(const p of ns){const k=reduce?.4:1;p.x+=p.vx*k;p.y+=p.vy*k;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}
  for(let i=0;i<ns.length;i++){const a=ns[i];
   for(let j=i+1;j<ns.length;j++){const b=ns[j],dd=Math.hypot(a.x-b.x,a.y-b.y);if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.3})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
   if(mouse){const md=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(md<R){ctx.strokeStyle=`rgba(167,220,197,${(1-md/R)*.6})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
