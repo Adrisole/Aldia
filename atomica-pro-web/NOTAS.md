@@ -9,7 +9,7 @@
 
 **Negocio**
 - **Marca:** Atómica Pro, agencia digital. Solo marca, sin nombre ni foto de persona.
-- **Proyectos propios de la agencia:** ChangaRed y Atómica para monotributistas.
+- **Proyectos propios de la agencia:** ChangaRed (changared.com, empleados virtuales), ChangaRed Servicios (changared.online, buscador de trabajadores) y Atómica para monotributistas.
 - **Servicios:**
   - Página web a medida: landing US$ 100, página web desde US$ 250, tienda online desde US$ 450.
   - Automatizaciones: presupuesto a medida.
@@ -64,7 +64,7 @@
 ## Pendiente de Adriana
 - [x] Captura de Atómica para monotributistas (pantalla de ingreso, sin email). Ideal: sumar una captura de adentro del sistema con datos de prueba.
 - [x] Captura de ChangaRed (en `fotos/changared.webp`, ya puesta en la tarjeta).
-- [ ] Confirmar que el dominio de ChangaRed es changared.com.
+- [x] ChangaRed son 2 proyectos: empleados virtuales para WhatsApp = changared.com; buscador de trabajadores en Misiones = changared.online. Los dos van en Trabajos (3 tarjetas en total).
 - [ ] **Decidir dominio:** el sistema de monotributistas ya usa atomica.click. ¿Agencia en atomica.click y sistema en app.atomica.click, o agencia en otro dominio?
 - [ ] Plazo de entrega de una landing, una página web y una tienda.
 - [ ] Email de la agencia.
