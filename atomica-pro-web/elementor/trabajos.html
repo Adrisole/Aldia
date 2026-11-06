@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Atómica Pro · Trabajos ya hechos (muestra)</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+.at{--bg:#0F3B2F;--tx:#F3E6CF;--nd:#A7DCC5;--vi:#A24BFF;background:var(--bg);color:var(--tx);font-family:"DM Sans",system-ui,sans-serif;padding:clamp(64px,10vw,120px) 0;overflow:hidden;text-align:center}
+.at *{box-sizing:border-box}
+.at-label{font:500 11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--nd);margin:0 0 18px}
+.at h2{margin:0 0 44px;font-weight:400}
+.at h2 .t1{display:block;font:400 clamp(44px,9vw,104px)/.92 "Anton",sans-serif;text-transform:uppercase}
+.at h2 .t2{display:block;font:italic 400 clamp(30px,5.5vw,64px)/1.05 "Instrument Serif",serif;margin-top:4px}
+
+.at-stage{position:relative;width:min(380px,78vw);aspect-ratio:4/5;margin:0 auto;touch-action:pan-y;cursor:grab}
+.at-stage:active{cursor:grabbing}
+.at-card{position:absolute;inset:0;border-radius:14px;overflow:hidden;text-decoration:none;color:var(--tx);
+  background:#0b2e25;border:1px solid rgba(243,230,207,.14);display:flex;flex-direction:column;justify-content:flex-end;text-align:left;
+  transform:translateX(130%);will-change:transform}
+.at-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.at-ph{position:absolute;inset:0;display:grid;place-items:center;font:500 11px "DM Mono",monospace;letter-spacing:.14em;color:rgba(243,230,207,.35);
+  background:radial-gradient(circle at 30% 30%,rgba(167,220,197,.16),transparent 55%),radial-gradient(circle at 75% 70%,rgba(162,75,255,.14),transparent 50%),#0b2e25}
+.at-info{position:relative;padding:70px 22px 24px;background:linear-gradient(to top,rgba(8,30,24,1) 0%,rgba(8,30,24,.96) 55%,rgba(8,30,24,0) 100%)}
+.at-info small{font:500 10.5px "DM Mono",monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--nd)}
+.at-info strong{display:block;font:italic 400 clamp(30px,6vw,40px)/1.05 "Instrument Serif",serif;margin:6px 0 10px}
+.at-info span{font-size:14px;opacity:.8;display:inline-flex;gap:8px;align-items:center}
+.at-info span i{width:8px;height:8px;border-radius:50%;background:var(--vi)}
+
+.at-dots{display:flex;gap:10px;justify-content:center;margin-top:28px}
+.at-dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--nd);background:transparent;padding:0;cursor:pointer}
+.at-dots button[aria-current="true"]{background:var(--nd)}
+.at-tag{display:inline-block;margin-top:22px;font:500 10px "DM Mono",monospace;letter-spacing:.12em;opacity:.5}
+</style></head><body style="margin:0">
+
+<section class="at" aria-labelledby="at-t">
+  <p class="at-label">Portfolio</p>
+  <h2 id="at-t"><span class="t1">Trabajos</span><span class="t2">ya hechos</span></h2>
+
+  <div class="at-stage" id="at-stage" aria-roledescription="carrusel" aria-live="polite">
+    <a class="at-card" href="#atomica-monotributistas" aria-label="Atómica para monotributistas">
+      <img src="https://atomica.click/wp-content/uploads/atomica-monotributistas.webp" alt="Pantalla de ingreso de Atómica, sistema de gestión para monotributistas" style="object-position:34% 30%" loading="lazy">
+      <div class="at-info"><small>Sistema a medida</small><strong>Atómica para monotributistas</strong><span><i></i>Ver trabajo</span></div>
+    </a>
+    <a class="at-card" href="https://changared.com" target="_blank" rel="noopener" aria-label="ChangaRed">
+      <img src="https://atomica.click/wp-content/uploads/changared.webp" alt="Página de ChangaRed: empleados virtuales para el WhatsApp de un negocio" style="object-position:76% 50%" loading="lazy">
+      <div class="at-info"><small>Automatizaciones</small><strong>ChangaRed</strong><span><i></i>Ver trabajo</span></div>
+    </a>
+    <a class="at-card" href="https://changared.online" target="_blank" rel="noopener" aria-label="ChangaRed, buscador de servicios">
+      <img src="https://atomica.click/wp-content/uploads/changared-online.webp" alt="ChangaRed: buscador de plomeros, electricistas y otros servicios en Misiones" style="object-position:0% 30%" loading="lazy">
+      <div class="at-info"><small>Plataforma web</small><strong>ChangaRed · Servicios</strong><span><i></i>Ver trabajo</span></div>
+    </a>
+  </div>
+  <div class="at-dots" id="at-dots"></div>
+  
+</section>
+
+<script>
+(()=>{
+const stage=document.getElementById('at-stage'),cards=[...stage.querySelectorAll('.at-card')],dots=document.getElementById('at-dots');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+let cur=0,busy=false,timer;
+cards.forEach((c,i)=>{const b=document.createElement('button');b.setAttribute('aria-label','Ver '+c.getAttribute('aria-label'));b.onclick=()=>go(i);dots.appendChild(b);});
+function mark(){[...dots.children].forEach((b,i)=>b.setAttribute('aria-current',i===cur));}
+cards[0].style.transform='translateX(0)';mark();
+
+// La nueva entra desde la derecha y "empuja" a la actual: la actual se comprime un poco y sale por la izquierda.
+function go(next,dir=1){
+  if(busy||next===cur)return;busy=true;
+  const out=cards[cur],inn=cards[next];
+  if(reduce){out.style.transform=`translateX(${-130*dir}%)`;inn.style.transform='translateX(0)';cur=next;mark();busy=false;return;}
+  inn.style.transform=`translateX(${130*dir}%)`;inn.style.zIndex=2;out.style.zIndex=1;
+  const ease='cubic-bezier(.7,0,.2,1)';
+  inn.animate([{transform:`translateX(${130*dir}%)`},{transform:`translateX(${12*dir}%)`,offset:.55},{transform:`translateX(${-3*dir}%)`,offset:.82},{transform:'translateX(0)'}],{duration:900,easing:ease,fill:'forwards'});
+  out.animate([{transform:'translateX(0) scale(1)'},{transform:`translateX(${-8*dir}%) scaleX(.94)`,offset:.5},{transform:`translateX(${-130*dir}%) scaleX(1)`}],{duration:900,easing:ease,fill:'forwards'})
+    .onfinish=()=>{out.getAnimations().forEach(a=>a.cancel());inn.getAnimations().forEach(a=>a.cancel());out.style.transform=`translateX(${130}%)`;inn.style.transform='translateX(0)';busy=false;};
+  cur=next;mark();
+}
+function auto(){clearInterval(timer);timer=setInterval(()=>go((cur+1)%cards.length),3200);}
+auto();
+// Arrastrar con el dedo o el mouse
+let x0=null;
+stage.addEventListener('pointerdown',e=>{x0=e.clientX;});
+stage.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0;x0=null;
+  if(Math.abs(dx)>40){e.preventDefault();const d=dx<0?1:-1;go((cur+d+cards.length)%cards.length,d);auto();}});
+stage.addEventListener('click',e=>{if(stage.dataset.drag)e.preventDefault();});
+stage.addEventListener('mouseenter',()=>clearInterval(timer));stage.addEventListener('mouseleave',auto);
+})();
+</script>
+</body></html>

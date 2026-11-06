@@ -74,3 +74,7 @@
 
 ## Próximo paso
 Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan y "Hablemos". Después, las páginas por servicio.
+
+## Dos versiones de cada página
+- `muestras/`: para ver en el celu. Las letras y las fotos van adentro del archivo, por eso pesan mucho.
+- `elementor/`: para pegar en WordPress. Son livianas (6 a 18 KB): las letras se cargan de Google Fonts y las fotos se suben a la biblioteca de medios. Después de subir cada foto hay que reemplazar su link en el código.
