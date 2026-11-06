@@ -62,9 +62,10 @@
   - Todo lo de muestra va marcado como "ejemplo".
 
 ## Pendiente de Adriana
-- [ ] Captura de Atómica para monotributistas.
+- [x] Captura de Atómica para monotributistas (pantalla de ingreso, sin email). Ideal: sumar una captura de adentro del sistema con datos de prueba.
 - [x] Captura de ChangaRed (en `fotos/changared.webp`, ya puesta en la tarjeta).
 - [ ] Confirmar que el dominio de ChangaRed es changared.com.
+- [ ] **Decidir dominio:** el sistema de monotributistas ya usa atomica.click. ¿Agencia en atomica.click y sistema en app.atomica.click, o agencia en otro dominio?
 - [ ] Plazo de entrega de una landing, una página web y una tienda.
 - [ ] Email de la agencia.
 - [ ] Instagram de la agencia.
