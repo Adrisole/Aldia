@@ -439,3 +439,25 @@ document.querySelectorAll('dialog.lgm').forEach(d=>{d.querySelector('.lgm-x').ad
  d.addEventListener('click',e=>{if(e.target===d)d.close();});});
 if(location.hash.startsWith('#legal-')){const d=document.getElementById('lgm-'+location.hash.slice(7));if(d)d.showModal();}})();
 </script>
+
+<!-- Botón flotante de WhatsApp (propio, sin plugins) -->
+<style>
+.wa-fab{position:fixed;right:18px;bottom:18px;z-index:9999;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border-radius:999px;
+  background:#0F3B2F;border:1px solid rgba(167,220,197,.35);box-shadow:0 10px 30px rgba(0,0,0,.35);text-decoration:none!important;
+  opacity:0;transform:translateY(16px);pointer-events:none;transition:opacity .4s,transform .4s,border-color .3s}
+.wa-fab.show{opacity:1;transform:none;pointer-events:auto}
+.wa-fab:hover{border-color:#F3E6CF}
+.wa-fab i{position:relative;width:14px;height:14px;border-radius:50%;background:#A24BFF;flex:none}
+.wa-fab i::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:1px solid #A24BFF;animation:wa-p 2.2s ease-out infinite}
+@keyframes wa-p{from{transform:scale(.5);opacity:.7}to{transform:scale(1.6);opacity:0}}
+.wa-fab span{font-family:"DM Sans",system-ui,sans-serif!important;font-weight:600;font-size:15px;color:#F3E6CF!important}
+.wa-fab:focus-visible{outline:2px solid #A7DCC5;outline-offset:4px}
+@media (max-width:480px){.wa-fab{right:14px;bottom:14px;padding:11px 16px 11px 13px}.wa-fab span{font-size:14px}}
+@media (prefers-reduced-motion:reduce){.wa-fab{transition:none}.wa-fab i::after{animation:none}}
+</style>
+<a class="wa-fab" id="wa-fab" href="https://wa.me/5493764240063?text=Hola%20At%C3%B3mica%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"><i aria-hidden="true"></i><span>WhatsApp</span></a>
+<script>
+(()=>{const b=document.getElementById('wa-fab');if(!b||b.dataset.on)return;b.dataset.on=1;
+/* Aparece después de bajar un poco (la portada ya tiene su propio botón) */
+const f=()=>b.classList.toggle('show',scrollY>innerHeight*.6);addEventListener('scroll',f,{passive:true});f();})();
+</script>
