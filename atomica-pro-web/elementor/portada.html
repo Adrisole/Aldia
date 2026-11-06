@@ -10,7 +10,7 @@
 .ap-top a{font:500 12px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--tx);text-decoration:none;opacity:.8}
 .ap-hero{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px clamp(20px,5vw,56px) 40px}
 .ap-eyebrow{font:500 11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--nd);margin:0 0 26px}
-.ap h1{margin:0 auto 26px;font-weight:400;text-wrap:balance}.ap h1 .t1{display:block;font:400 clamp(40px,9vw,112px)/.9 "Anton",sans-serif;text-transform:uppercase}.ap h1 .t2{display:block;font:italic 400 clamp(30px,6vw,78px)/1 "Instrument Serif",serif;margin-top:4px}.ap h1 .dot{display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--vi);margin-left:.06em}
+.ap-eyebrow{font-weight:500}.ap .ap-title{margin:0 auto 26px;font-weight:400;text-wrap:balance}.ap .ap-title .t1{display:block;font:400 clamp(40px,9vw,112px)/.9 "Anton",sans-serif;text-transform:uppercase}.ap .ap-title .t2{display:block;font:italic 400 clamp(30px,6vw,78px)/1 "Instrument Serif",serif;margin-top:4px}.ap .ap-title .dot{display:inline-block;width:.2em;height:.2em;border-radius:50%;background:var(--vi);margin-left:.06em}
 .ap-sub{max-width:38ch;margin:0 auto 44px;font-size:clamp(16px,1.6vw,19px);line-height:1.55;opacity:.78}
 .ap-cta{position:relative;display:inline-flex;align-items:center;gap:16px;color:var(--tx);text-decoration:none;font-weight:600;font-size:17px;padding:10px 6px}
 .ap-node{position:relative;width:18px;height:18px;border-radius:50%;background:var(--vi);flex:none}
@@ -34,11 +34,12 @@
 /* Que el tema de Elementor no pise colores ni letras */
 .ap,.ap *{font-family:"DM Sans",system-ui,sans-serif!important}
 .ap,.ap *{color:#F3E6CF!important}
-.ap h1 .t1,.ap-logo{font-family:"Anton",sans-serif!important}
-.ap h1 .t2{font-family:"Instrument Serif",serif!important;font-style:italic!important}
+.ap .ap-title .t1,.ap-logo{font-family:"Anton",sans-serif!important}
+.ap .ap-title .t2{font-family:"Instrument Serif",serif!important;font-style:italic!important}
 .ap-eyebrow,.ap-step,.ap-top a,.ap-tag,.ap-logo small{font-family:"DM Mono",monospace!important}
 .ap-eyebrow{color:#A7DCC5!important}.ap-step{color:rgba(243,230,207,.45)!important}.ap-step.on{color:#F3E6CF!important}
 .ap h1,.ap p{margin-left:auto!important;margin-right:auto!important}
+.ap h1.ap-eyebrow{font-size:11px!important;line-height:1.6;margin-top:0!important;margin-bottom:26px!important}
 
 /* Logo: el JPG tiene fondo, por eso va en un círculo claro */
 .logo-ico{width:40px!important;height:40px!important;border-radius:50%;object-fit:cover;background:#F3E6CF;margin-right:10px;vertical-align:middle;flex:none}
@@ -51,6 +52,19 @@
 .ap [data-reveal].in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.ap [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"ProfessionalService","@id":"https://atomica.click/#negocio","name":"Atómica Pro","url":"https://atomica.click/",
+  "logo":"https://atomica.click/wp-content/uploads/2026/10/cropped-Graphic_icon_with_letter_A_d227c522_2K-1.jpg",
+  "description":"Agencia digital de Posadas, Misiones: páginas web, tiendas online, automatizaciones para WhatsApp y software a medida para comercios y profesionales.",
+  "telephone":"+5493764240063","email":"atomicaclik@gmail.com",
+  "address":{"@type":"PostalAddress","addressLocality":"Posadas","addressRegion":"Misiones","addressCountry":"AR"},
+  "areaServed":[{"@type":"City","name":"Posadas"},{"@type":"State","name":"Misiones"},{"@type":"Country","name":"Argentina"}],
+  "priceRange":"US$ 100 - US$ 450+",
+  "knowsAbout":["Diseño de páginas web","Landing pages","Tiendas online","Automatización de procesos","Bots de WhatsApp","Software a medida","Sistemas de turnos online","SEO"]},
+ {"@type":"WebSite","@id":"https://atomica.click/#web","url":"https://atomica.click/","name":"Atómica Pro","inLanguage":"es-AR","publisher":{"@id":"https://atomica.click/#negocio"}}
+]}
+</script>
 <section class="ap" id="ap">
   <canvas aria-hidden="true"></canvas>
   <header class="ap-top">
@@ -58,8 +72,8 @@
     <a href="https://atomica.click/que-hacemos/">Qué hacemos</a>
   </header>
   <div class="ap-hero">
-    <p class="ap-eyebrow" data-reveal>Páginas web · Automatizaciones · Sistemas a medida</p>
-    <h1 data-reveal style="--d:.12s"><span class="t1">Que te encuentren,</span><span class="t2">que vendas y que te sobre tiempo<span class="dot" aria-hidden="true"></span></span></h1>
+    <h1 class="ap-eyebrow" data-reveal>Páginas web, automatizaciones y software a medida</h1>
+    <p class="ap-title" data-reveal style="--d:.12s"><span class="t1">Que te encuentren,</span> <span class="t2">que vendas y que te sobre tiempo<span class="dot" aria-hidden="true"></span></span></p>
     <p class="ap-sub" data-reveal style="--d:.3s">Páginas web, automatizaciones y sistemas a medida para comercios y profesionales. Para que aparezcas en Google, te lleguen consultas al WhatsApp y dejes de hacer todo a mano.</p>
     <a class="ap-cta" id="ap-cta" data-reveal style="--d:.45s" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener">
       <i class="ap-node" aria-hidden="true"></i><span>Hablemos por WhatsApp</span>

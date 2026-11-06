@@ -106,3 +106,21 @@ Página aparte "Qué hacemos": `elementor/que-hacemos.html` (slug `que-hacemos`)
   - [ ] Rondas de cambios incluidas.
   - [ ] A nombre de quién van el dominio y el hosting, y quién los paga.
   - [ ] Si se usa Google Analytics / Meta Pixel (para la parte de cookies).
+
+## SEO (noviembre 2026)
+Investigación en OpenSEO (proyecto "Atómica Pro", Argentina, gastó 19 créditos). Búsquedas/mes en Argentina y dificultad 0-100:
+- automatización de procesos 170 (KD 0) · software a medida 140 (KD 0) · sistema de turnos online 90 (KD 0)
+- bot de whatsapp 210 (KD 19) · chatbot whatsapp 390 (KD 27) · cuánto cuesta una página web en Argentina 30 (KD 16)
+- diseño de páginas web 1000 (KD 66, difícil) · diseño web argentina 260 (KD 100) · diseño web Posadas 10 (baja, pero intención de compra)
+Estrategia: ganar primero en software a medida / automatizaciones / bot de WhatsApp / precios + ficha de Google Maps para Posadas.
+
+Títulos y descripciones (Rank Math o Yoast):
+- Inicio: "Páginas web y automatizaciones en Posadas | Atómica Pro" / "Páginas web, tiendas online, bots de WhatsApp y software a medida para comercios y profesionales de Posadas. Landing desde US$ 100. ¡Escribinos!"
+- Qué hacemos: "Software a medida y bots de WhatsApp | Atómica Pro" / "Landing desde US$ 100, páginas web desde US$ 250 y tiendas desde US$ 450. Automatización de procesos y software a medida en Posadas, Misiones."
+
+Hecho en el código: H1 de la portada con palabras clave (se ve igual), datos estructurados del negocio en la portada, textos de Qué hacemos con "bot de WhatsApp", "automatización de procesos", "software a medida", "cuánto cuesta una página web en Argentina".
+
+Próximos artículos/páginas sugeridos:
+1. ¿Cuánto cuesta una página web en Argentina? (con los precios reales)
+2. Bot de WhatsApp para tu negocio (relacionado con ChangaRed)
+3. Sistema de turnos online / software a medida
