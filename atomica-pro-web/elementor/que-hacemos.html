@@ -1,253 +1,287 @@
 <!-- Atómica Pro · Qué hacemos · pegar en un widget HTML de Elementor -->
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
-.aq{--bg:#0F3B2F;--tx:#F3E6CF;--nd:#A7DCC5;--vi:#A24BFF;--soft:rgba(243,230,207,.72);--line:rgba(243,230,207,.14);
-  position:relative;background:var(--bg);color:var(--tx);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;isolation:isolate;overflow:hidden}
-.aq *{box-sizing:border-box}
-.aq canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-1;opacity:.55;pointer-events:none}
-.aq a{color:var(--tx)}
-.aq-wrap{width:min(1080px,100%);margin:0 auto;padding:0 clamp(20px,5vw,48px)}
-.aq-label{font:500 11px "DM Mono",monospace;letter-spacing:.2em;text-transform:uppercase;color:var(--nd);margin:0 0 18px}
-.aq-pending{color:rgba(243,230,207,.45);font-style:italic;border-bottom:1px dashed rgba(243,230,207,.3)}
-.aq-top{display:flex;justify-content:space-between;align-items:center;padding:22px clamp(20px,5vw,48px)}
-.aq-logo{display:flex;align-items:center;font:400 22px "Anton",sans-serif;text-transform:uppercase;text-decoration:none}
-.aq-logo small{font:500 10px "DM Mono",monospace;letter-spacing:.15em;opacity:.7;margin-left:4px}
-.aq-top nav a{font:500 12px "DM Mono",monospace;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;opacity:.8}
+.qh{--bg:#0F3B2F;--tx:#F3E6CF;--nd:#A7DCC5;--vi:#A24BFF;--soft:rgba(243,230,207,.7);--line:rgba(243,230,207,.14);
+  position:relative;isolation:isolate;overflow:hidden;background:var(--bg);width:100%;line-height:1.55}
+.qh,.qh *{box-sizing:border-box;font-family:"DM Sans",system-ui,sans-serif!important;color:#F3E6CF!important}
+.qh-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+.qh a{text-decoration:none}
+.qh-wrap{width:100%;max-width:1120px;margin:0 auto!important;padding-left:clamp(22px,5vw,48px)!important;padding-right:clamp(22px,5vw,48px)!important}
+.qh-mono{font-family:"DM Mono",monospace!important;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#A7DCC5!important}
+.qh-anton{font-family:"Anton",sans-serif!important;font-weight:400!important;text-transform:uppercase;letter-spacing:.005em}
+.qh-serif{font-family:"Instrument Serif",serif!important;font-style:italic!important;font-weight:400!important}
+.qh p,.qh h1,.qh h2,.qh h3{margin:0}
 
 /* Encabezado */
-.aq-head{text-align:center;padding:clamp(56px,10vw,120px) 0 clamp(48px,8vw,96px)}
-.aq-head .aq-label{margin-bottom:30px}.aq-head h1{margin:0 auto 28px;font-weight:400;text-wrap:balance}
-.aq-head h1 .t1{display:block;font:400 clamp(36px,7.5vw,92px)/.92 "Anton",sans-serif;text-transform:uppercase}
-.aq-head h1 .t2{display:block;font:italic 400 clamp(28px,6vw,76px)/1.05 "Instrument Serif",serif;margin-top:6px}
-.aq-head p{max-width:56ch;margin:0 auto;font-size:clamp(16px,1.6vw,19px);color:var(--soft)}
-.aq-head p strong{color:var(--tx);font-weight:600}
+.qh-top{display:flex;justify-content:space-between;align-items:center;padding-top:22px!important;padding-bottom:22px!important}
+.qh-logo{display:flex;align-items:center;font-size:22px}
+.qh-logo small{font-family:"DM Mono",monospace!important;font-size:10px;letter-spacing:.15em;opacity:.7;margin-left:4px}
+.logo-ico{width:40px!important;height:40px!important;border-radius:50%;object-fit:cover;background:#F3E6CF;margin-right:10px;flex:none}
+.qh-top nav a{font-family:"DM Mono",monospace!important;font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.85}
 
-/* Secciones */
-.aq-sec{padding:clamp(56px,9vw,110px) 0;border-top:1px solid var(--line)}
-.aq-sec h2{font:400 clamp(34px,6vw,64px)/.98 "Anton",sans-serif;text-transform:uppercase;margin:0 0 18px;text-align:center}
-.aq-sec h2 em{display:block;font:italic 400 .62em/1.1 "Instrument Serif",serif;text-transform:none;margin-top:6px}
-.aq-sec .aq-label{text-align:center}
-.aq-lead{max-width:58ch;margin:0 auto 44px;text-align:center;color:var(--soft);font-size:clamp(16px,1.5vw,18px)}
+.qh-head{text-align:center;padding-top:clamp(40px,8vw,90px)!important;padding-bottom:clamp(40px,7vw,80px)!important}
+.qh-head .qh-mono{margin-bottom:22px}
+.qh-head h1 .t1{display:block;font-size:clamp(36px,7.5vw,92px);line-height:.92}
+.qh-head h1 .t2{display:block;font-size:clamp(28px,5.6vw,68px);line-height:1.05;margin-top:4px}
 
-/* Servicios en lista, sin cajas */
-.aq-list{list-style:none;margin:0;padding:0}
-.aq-item{border-top:1px solid var(--line);padding:36px 0;transition:border-color .3s,padding-left .3s}
-.aq-item:last-child{border-bottom:1px solid var(--line)}
-.aq-item:hover{border-color:rgba(167,220,197,.5);padding-left:10px}
-.aq-item h3{font:italic 400 clamp(30px,4.4vw,48px)/1.05 "Instrument Serif",serif;margin:0 0 12px}
-.aq-item p{margin:0 0 14px;color:var(--soft);max-width:62ch}
-.aq-item ul{margin:0 0 14px;padding-left:1.1em;color:var(--soft)}
-.aq-item li{margin:4px 0}
-.aq-item li::marker{color:var(--nd)}
-.aq-price{font:500 12.5px "DM Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--nd);margin:16px 0 0;display:flex;flex-wrap:wrap;gap:8px 22px}
-.aq-price b{color:var(--tx);font-weight:500}
+/* Servicios: visual + poco texto */
+.qh-svc{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,6vw,90px);align-items:center;padding-top:clamp(48px,8vw,96px)!important;padding-bottom:clamp(48px,8vw,96px)!important;border-top:1px solid var(--line)}
+.qh-svc:nth-of-type(even) .qh-vis{order:2}
+.qh-txt h2{font-size:clamp(36px,5vw,58px);line-height:1;margin:12px 0 14px}
+.qh-txt p{color:rgba(243,230,207,.72)!important;max-width:38ch;font-size:17px}
+.qh-price{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px}
+.qh-price span{font-family:"DM Mono",monospace!important;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#A7DCC5!important}
+.qh-price b{font-family:"DM Mono",monospace!important;font-weight:500}
+.qh-more{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-weight:600;border-bottom:1px solid rgba(243,230,207,.35);padding-bottom:4px}
+.qh-more i{width:9px;height:9px;border-radius:50%;background:#A24BFF}
+.qh-vis{position:relative;display:grid;place-items:center;min-height:360px}
+.qh-ej{position:absolute;top:0;left:0;font-family:"DM Mono",monospace!important;font-size:10px;letter-spacing:.14em;opacity:.45}
 
-/* Pasos */
-.aq-steps{list-style:none;margin:0 auto;padding:0;max-width:720px;position:relative}
-.aq-steps::before{content:"";position:absolute;left:8px;top:10px;bottom:10px;width:1px;background:rgba(167,220,197,.3)}
-.aq-steps li{position:relative;padding:0 0 30px 44px}
-.aq-steps li::before{content:"";position:absolute;left:3px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--nd)}
-.aq-steps li:first-child::before{background:var(--vi);border-color:var(--vi)}
-.aq-steps strong{display:block;font:italic 400 26px/1.2 "Instrument Serif",serif;font-weight:400}
-.aq-steps span{color:var(--soft)}
+/* Visual 1: celular con página que se desplaza */
+.ph{width:200px;height:380px;border-radius:30px;border:2px solid rgba(243,230,207,.25);background:#0b2e25;padding:12px;position:relative;overflow:hidden}
+.ph-screen{position:absolute;inset:12px;border-radius:20px;overflow:hidden;background:#F3E6CF}
+.ph-page{animation:ph-scroll 9s ease-in-out infinite}
+.ph-page>div{margin:10px 12px;border-radius:6px;background:#0F3B2F}
+.ph-nav{height:12px;opacity:.25;width:50%}
+.ph-hero{height:110px;background:linear-gradient(135deg,#0F3B2F,#1d5a48)!important}
+.ph-line{height:9px;opacity:.3}.ph-line.s{width:70%}
+.ph-cards{display:grid;grid-template-columns:1fr 1fr;gap:8px;background:none!important}
+.ph-cards span{height:70px;border-radius:6px;background:#A7DCC5;opacity:.7}
+.ph-wa{position:absolute;right:12px;bottom:14px;width:34px;height:34px;border-radius:50%;background:#25D366;box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:ph-pulse 2s infinite}
+@keyframes ph-scroll{0%,15%{transform:translateY(0)}50%,65%{transform:translateY(-150px)}100%{transform:translateY(0)}}
+@keyframes ph-pulse{70%{box-shadow:0 0 0 12px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
 
-/* Trabajos */
-.aq-work .aq-item h3 a{text-decoration:none;border-bottom:1px solid rgba(243,230,207,.35)}
-.aq-work .aq-item h3 a:hover{border-color:var(--tx)}
+/* Visual 2: chat que se responde solo */
+.ch{width:min(300px,100%);border-radius:18px;background:#0b2e25;border:1px solid var(--line);padding:16px;display:flex;flex-direction:column;gap:10px;min-height:300px}
+.ch-head{display:flex;align-items:center;gap:10px;padding-bottom:10px;border-bottom:1px solid var(--line);font-size:14px;font-weight:600}
+.ch-head i{width:28px;height:28px;border-radius:50%;background:#A7DCC5}
+.ch-head small{display:block;font-size:11px;font-weight:400;color:#A7DCC5!important}
+.ch-m{max-width:80%;padding:8px 12px;border-radius:12px;font-size:14px;line-height:1.35;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s}
+.ch-m.in{align-self:flex-start;background:rgba(243,230,207,.1)}
+.ch-m.out{align-self:flex-end;background:#1f5a47}
+.ch-m.show{opacity:1;transform:none}
+.ch-typing{align-self:flex-end;display:flex;gap:4px;padding:10px 12px;border-radius:12px;background:#1f5a47;opacity:0}
+.ch-typing.show{opacity:1}
+.ch-typing b{width:6px;height:6px;border-radius:50%;background:#F3E6CF;animation:ch-dot 1s infinite}
+.ch-typing b:nth-child(2){animation-delay:.15s}.ch-typing b:nth-child(3){animation-delay:.3s}
+@keyframes ch-dot{50%{opacity:.25}}
 
-/* Preguntas */
-.aq-faq{max-width:780px;margin:0 auto}
-.aq-faq details{border-top:1px solid var(--line);padding:22px 0}
-.aq-faq details:last-child{border-bottom:1px solid var(--line)}
-.aq-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font:italic 400 clamp(22px,2.6vw,28px)/1.25 "Instrument Serif",serif}
-.aq-faq summary::-webkit-details-marker{display:none}
-.aq-faq summary::after{content:"+";font:400 22px "DM Mono",monospace;color:var(--nd);transition:transform .3s}
-.aq-faq details[open] summary::after{transform:rotate(45deg)}
-.aq-faq p{margin:12px 0 0;color:var(--soft);max-width:64ch}
+/* Visual 3: panel con semáforo */
+.pn{width:min(320px,100%);border-radius:18px;background:#0b2e25;border:1px solid var(--line);padding:20px;display:grid;gap:16px}
+.pn-row{display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.pn-sem{display:flex;gap:8px}
+.pn-sem i{width:16px;height:16px;border-radius:50%;opacity:.18;transition:opacity .4s,box-shadow .4s}
+.pn-sem i:nth-child(1){background:#5BD38A}.pn-sem i:nth-child(2){background:#F2C94C}.pn-sem i:nth-child(3){background:#EB5757}
+.pn-sem i.on{opacity:1;box-shadow:0 0 12px currentColor}
+.pn-bar{height:8px;border-radius:99px;background:rgba(243,230,207,.1);overflow:hidden}
+.pn-bar b{display:block;height:100%;width:0;background:#A7DCC5;border-radius:99px;transition:width 1.2s ease}
+.pn-label{font-family:"DM Mono",monospace!important;font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.6;margin-bottom:-8px}
+
+/* Cómo trabajamos: línea de nodos */
+.qh-steps{border-top:1px solid var(--line);padding-top:clamp(56px,9vw,100px)!important;padding-bottom:clamp(56px,9vw,100px)!important;text-align:center}
+.qh-steps h2{font-size:clamp(34px,5.5vw,60px);line-height:1;margin:14px 0 40px}
+.qh-path{display:grid;grid-template-columns:repeat(4,1fr);position:relative;max-width:900px;margin:0 auto}
+.qh-path::before{content:"";position:absolute;top:7px;left:12.5%;right:12.5%;height:1px;background:rgba(167,220,197,.35)}
+.qh-path li{list-style:none;position:relative;padding:0 8px}
+.qh-path li::before{content:"";display:block;width:15px;height:15px;margin:0 auto 16px;border-radius:50%;background:var(--bg);border:1px solid #A7DCC5;position:relative}
+.qh-path li:first-child::before{background:#A24BFF;border-color:#A24BFF}
+.qh-path strong{display:block;font-family:"Instrument Serif",serif!important;font-style:italic;font-weight:400;font-size:22px;line-height:1.15}
+.qh-path span{display:block;font-size:13.5px;color:rgba(243,230,207,.62)!important;margin-top:6px}
+
+/* Preguntas plegadas */
+.qh-faq{border-top:1px solid var(--line);padding-top:clamp(56px,9vw,100px)!important;padding-bottom:clamp(40px,6vw,70px)!important}
+.qh-faq h2{text-align:center;font-size:clamp(34px,5.5vw,60px);line-height:1;margin:14px 0 30px}
+.qh-faq .qh-mono{text-align:center}
+.qh-faq-list{max-width:760px;margin:0 auto}
+.qh-faq details{border-top:1px solid var(--line);padding:18px 0}
+.qh-faq details:last-child{border-bottom:1px solid var(--line)}
+.qh-faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;font-family:"Instrument Serif",serif!important;font-style:italic;font-size:clamp(20px,2.4vw,26px);line-height:1.25}
+.qh-faq summary::-webkit-details-marker{display:none}
+.qh-faq summary::after{content:"+";font-family:"DM Mono",monospace!important;font-style:normal;color:#A7DCC5!important;transition:transform .3s}
+.qh-faq details[open] summary::after{transform:rotate(45deg)}
+.qh-faq details p{margin-top:10px!important;color:rgba(243,230,207,.7)!important;max-width:62ch;font-size:16px}
 
 /* Cierre */
-.aq-end{text-align:center;padding:clamp(72px,12vw,140px) 0}
-.aq-end h2{font:400 clamp(40px,8vw,96px)/.95 "Anton",sans-serif;text-transform:uppercase;margin:0 0 30px}
-.aq-cta{display:inline-flex;align-items:center;gap:16px;text-decoration:none;font-weight:600;font-size:17px;padding:10px 6px}
-.aq-cta i{position:relative;width:18px;height:18px;border-radius:50%;background:var(--vi)}
-.aq-cta i::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid var(--vi);animation:aq-p 2.2s ease-out infinite}
-@keyframes aq-p{from{transform:scale(.5);opacity:.7}to{transform:scale(1.6);opacity:0}}
-.aq-cta span{border-bottom:1px solid rgba(243,230,207,.4);padding-bottom:4px}
-.aq-cta:hover span,.aq-cta:focus-visible span{border-color:var(--tx)}
-.aq-cta:focus-visible,.aq-faq summary:focus-visible{outline:2px solid var(--nd);outline-offset:6px}
+.qh-end{text-align:center;padding-top:clamp(60px,10vw,120px)!important;padding-bottom:clamp(60px,10vw,120px)!important}
+.qh-end h2{font-size:clamp(40px,7vw,84px);line-height:.95;margin-bottom:28px}
+.qh-cta{display:inline-flex;align-items:center;gap:16px;font-weight:600;font-size:17px}
+.qh-cta i{position:relative;width:18px;height:18px;border-radius:50%;background:#A24BFF}
+.qh-cta i::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid #A24BFF;animation:qh-p 2.2s ease-out infinite}
+@keyframes qh-p{from{transform:scale(.5);opacity:.7}to{transform:scale(1.6);opacity:0}}
+.qh-cta span{border-bottom:1px solid rgba(243,230,207,.4);padding-bottom:4px}
+.qh-foot{border-top:1px solid var(--line);text-align:center;padding-top:30px!important;padding-bottom:36px!important;font-family:"DM Mono",monospace!important;font-size:12px;letter-spacing:.05em;opacity:.75}
+.qh-foot p{margin:4px 0!important}
 
-/* Pie */
-.aq-foot{border-top:1px solid var(--line);padding:36px 0 44px;font:500 12px "DM Mono",monospace;letter-spacing:.06em;color:var(--soft);text-align:center}
-.aq-foot p{margin:6px 0}
-@media (prefers-reduced-motion:reduce){.aq-cta i::after{animation:none}.aq-item{transition:none}}
-
-/* Que el tema de Elementor no pise colores ni letras */
-.aq,.aq *{font-family:"DM Sans",system-ui,sans-serif!important}
-.aq,.aq *{color:#F3E6CF!important}
-.aq .aq-label,.aq-price,.aq-faq summary::after{color:#A7DCC5!important}
-.aq-price b{color:#F3E6CF!important}
-.aq-pending{color:rgba(243,230,207,.45)!important}
-.aq-head p,.aq-lead,.aq-item p,.aq-item ul,.aq-faq p,.aq-steps span,.aq-foot{color:rgba(243,230,207,.72)!important}
-.aq-head h1 .t1,.aq-sec h2,.aq-end h2,.aq-logo{font-family:"Anton",sans-serif!important}
-.aq-head h1 .t2,.aq-sec h2 em,.aq-item h3,.aq-item h3 a,.aq-steps strong,.aq-faq summary{font-family:"Instrument Serif",serif!important;font-style:italic!important}
-.aq-label,.aq-price,.aq-foot,.aq-top nav a{font-family:"DM Mono",monospace!important}
-.aq canvas{position:absolute!important}
-
-/* Logo: el JPG tiene fondo, por eso va en un círculo claro */
-.logo-ico{width:40px!important;height:40px!important;border-radius:50%;object-fit:cover;background:#F3E6CF;margin-right:10px;vertical-align:middle;flex:none}
-</style>
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@graph":[
-  {"@type":"ProfessionalService","@id":"https://atomica.click/#negocio","name":"Atómica Pro","url":"https://atomica.click/",
-   "description":"Agencia digital de Posadas, Misiones, que hace páginas web, automatizaciones y sistemas a medida para comercios y profesionales.",
-   "telephone":"+5493764240063",
-   "address":{"@type":"PostalAddress","addressLocality":"Posadas","addressRegion":"Misiones","addressCountry":"AR"},
-   "areaServed":[{"@type":"City","name":"Posadas"},{"@type":"State","name":"Misiones"},{"@type":"Country","name":"Argentina"}],
-   "priceRange":"US$ 100 - US$ 450+",
-   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios","itemListElement":[
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Landing (página de una sección)"},"price":"100","priceCurrency":"USD"},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Página web a medida"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"250","priceCurrency":"USD"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Tienda online"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"450","priceCurrency":"USD"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatizaciones para WhatsApp y web"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemas a medida"}}
-   ]}
-  },
-  {"@type":"BreadcrumbList","itemListElement":[
-   {"@type":"ListItem","position":1,"name":"Inicio","item":"https://atomica.click/"},
-   {"@type":"ListItem","position":2,"name":"Qué hacemos","item":"https://atomica.click/que-hacemos/"}]},
-  {"@type":"FAQPage","mainEntity":[
-   {"@type":"Question","name":"¿Cuánto cuesta una página web?","acceptedAnswer":{"@type":"Answer","text":"Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio."}},
-   {"@type":"Question","name":"¿Mi página va a aparecer en Google?","acceptedAnswer":{"@type":"Answer","text":"La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto en el que aparece también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo."}},
-   {"@type":"Question","name":"¿Sirve para mi rubro?","acceptedAnswer":{"@type":"Answer","text":"Sí. Trabajamos con comercios y profesionales de cualquier rubro. Cada página se arma a medida de lo que vende el negocio y de cómo atiende a sus clientes."}},
-   {"@type":"Question","name":"¿Qué es una automatización?","acceptedAnswer":{"@type":"Answer","text":"Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos, mandar recordatorios de turno o de pago y mostrar el catálogo con precios."}},
-   {"@type":"Question","name":"¿Qué necesito para empezar?","acceptedAnswer":{"@type":"Answer","text":"Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla."}}
-  ]}
- ]
+@media (max-width:820px){
+  .qh-svc{grid-template-columns:1fr;text-align:center}
+  .qh-svc:nth-of-type(even) .qh-vis{order:0}
+  .qh-txt p{margin-left:auto!important;margin-right:auto!important}
+  .qh-price{justify-content:center}
+  .qh-vis{min-height:0}
+  .qh-ej{position:static;margin-bottom:10px}
+  .qh-vis{display:flex;flex-direction:column;align-items:center}
+  .qh-path{grid-template-columns:1fr;gap:26px;text-align:left;max-width:340px}
+  .qh-path::before{top:8px;bottom:8px;left:7px;right:auto;width:1px;height:auto}
+  .qh-path li{padding-left:34px}
+  .qh-path li::before{position:absolute;left:0;top:4px;margin:0}
 }
-</script>
-<div class="aq" id="aq">
-<canvas aria-hidden="true"></canvas>
+@media (prefers-reduced-motion:reduce){.ph-page,.ph-wa,.qh-cta i::after{animation:none}}
+</style>
 
-<header class="aq-top">
-  <a class="aq-logo" href="https://atomica.click/"><img class="logo-ico" src="https://atomica.click/wp-content/uploads/2026/10/cropped-Graphic_icon_with_letter_A_d227c522_2K-1.jpg" alt="" width="40" height="40">Atómica<small>PRO</small></a>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"ProfessionalService","@id":"https://atomica.click/#negocio","name":"Atómica Pro","url":"https://atomica.click/",
+  "description":"Agencia digital de Posadas, Misiones, que hace páginas web, automatizaciones y sistemas a medida para comercios y profesionales.",
+  "telephone":"+5493764240063",
+  "address":{"@type":"PostalAddress","addressLocality":"Posadas","addressRegion":"Misiones","addressCountry":"AR"},
+  "areaServed":[{"@type":"City","name":"Posadas"},{"@type":"State","name":"Misiones"},{"@type":"Country","name":"Argentina"}],
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios","itemListElement":[
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Landing"},"price":"100","priceCurrency":"USD"},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Página web a medida"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"250","priceCurrency":"USD"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Tienda online"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"450","priceCurrency":"USD"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatizaciones para WhatsApp y web"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemas a medida"}}]}},
+ {"@type":"FAQPage","mainEntity":[
+  {"@type":"Question","name":"¿Cuánto cuesta una página web?","acceptedAnswer":{"@type":"Answer","text":"Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio."}},
+  {"@type":"Question","name":"¿Mi página va a aparecer en Google?","acceptedAnswer":{"@type":"Answer","text":"La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo."}},
+  {"@type":"Question","name":"¿Sirve para mi rubro?","acceptedAnswer":{"@type":"Answer","text":"Sí. Trabajamos con comercios y profesionales de cualquier rubro, y cada trabajo se arma a medida."}},
+  {"@type":"Question","name":"¿Qué es una automatización?","acceptedAnswer":{"@type":"Answer","text":"Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos y mandar recordatorios de turno o de pago."}},
+  {"@type":"Question","name":"¿Qué necesito para empezar?","acceptedAnswer":{"@type":"Answer","text":"Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla."}}]}
+]}
+</script>
+
+<div class="qh" id="qh">
+<canvas class="qh-bg" aria-hidden="true"></canvas>
+
+<header class="qh-top qh-wrap">
+  <a class="qh-logo qh-anton" href="https://atomica.click/"><img class="logo-ico" src="https://atomica.click/wp-content/uploads/2026/10/cropped-Graphic_icon_with_letter_A_d227c522_2K-1.jpg" alt="" width="40" height="40">Atómica<small>PRO</small></a>
   <nav><a href="https://wa.me/5493764240063">WhatsApp</a></nav>
 </header>
 
-<main>
-<!-- 1. Encabezado -->
-<section class="aq-head aq-wrap">
-  <p class="aq-label">Qué hacemos</p>
-  <h1><span class="t1">Páginas web, automatizaciones</span><span class="t2">y sistemas a medida en Posadas</span></h1>
-  <p><strong>Atómica Pro es una agencia digital de Posadas, Misiones, que hace páginas web, automatizaciones y sistemas a medida para comercios y profesionales.</strong> Que te encuentren en Google, que vendas y que dejes de hacer todo a mano.</p>
+<section class="qh-head qh-wrap">
+  <p class="qh-mono">Qué hacemos</p>
+  <h1><span class="t1 qh-anton">Páginas web y automatizaciones</span><span class="t2 qh-serif">a medida, en Posadas</span></h1>
 </section>
 
-<!-- 2. Servicios -->
-<section class="aq-sec aq-wrap" id="servicios" aria-labelledby="t-servicios">
-  <p class="aq-label">Servicios</p>
-  <h2 id="t-servicios">Tres formas<em>de ahorrarte tiempo y vender más</em></h2>
-  <p class="aq-lead">Cada trabajo se arma a medida del negocio. No usamos plantillas genéricas.</p>
-  <ul class="aq-list">
-    <li class="aq-item" id="pagina-web">
-      <h3>Página web a medida</h3>
-      <p>Una página web pensada para que tu negocio aparezca en Google y para que quien entra te escriba al WhatsApp. Se ve bien en el celular y carga rápido.</p>
-      <ul>
-        <li><strong>Landing:</strong> una sola página con lo esencial de tu negocio y el botón de WhatsApp.</li>
-        <li><strong>Página web:</strong> varias secciones para contar tus servicios, mostrar tu trabajo y responder dudas.</li>
-        <li><strong>Tienda online:</strong> catálogo con precios y pedidos.</li>
-      </ul>
-      <p class="aq-price"><span>Landing <b>US$ 100</b></span><span>Página web <b>desde US$ 250</b></span><span>Tienda online <b>desde US$ 450</b></span></p>
-    </li>
-    <li class="aq-item" id="automatizaciones">
-      <h3>Automatizaciones</h3>
-      <p>Una automatización es una tarea que se hace sola en lugar de hacerla vos a mano. Sirve para que no pierdas clientes por no contestar a tiempo.</p>
-      <ul>
-        <li>Responder mensajes.</li>
-        <li>Tomar pedidos.</li>
-        <li>Agendar turnos y recordarlos.</li>
-        <li>Mandar recordatorios de pago.</li>
-        <li>Mostrar el catálogo con precios.</li>
-      </ul>
-      <p class="aq-price"><span>Presupuesto <b>según tu negocio</b></span></p>
-    </li>
-    <li class="aq-item" id="sistemas">
-      <h3>Sistemas a medida</h3>
-      <p>Cuando una planilla ya no alcanza, armamos un sistema pensado para cómo trabaja tu negocio: tus datos, tus clientes y tus procesos en un solo lugar.</p>
-      <p class="aq-price"><span>Presupuesto <b>según tu negocio</b></span></p>
-    </li>
-  </ul>
+<section class="qh-svc qh-wrap" id="pagina-web" aria-labelledby="t1">
+  <div class="qh-vis" aria-hidden="true"><span class="qh-ej">EJEMPLO</span>
+    <div class="ph"><div class="ph-screen"><div class="ph-page">
+      <div class="ph-nav"></div><div class="ph-hero"></div><div class="ph-line"></div><div class="ph-line s"></div>
+      <div class="ph-cards"><span></span><span></span><span></span><span></span></div>
+      <div class="ph-line"></div><div class="ph-line s"></div><div class="ph-hero"></div>
+    </div></div><span class="ph-wa"></span></div>
+  </div>
+  <div class="qh-txt">
+    <p class="qh-mono">Página web a medida</p>
+    <h2 id="t1" class="qh-serif">Que te encuentren y te escriban</h2>
+    <p>Aparecé en Google y llevá cada visita directo a tu WhatsApp.</p>
+    <div class="qh-price"><span>Landing <b>US$ 100</b></span><span>Página web <b>desde US$ 250</b></span><span>Tienda online <b>desde US$ 450</b></span></div>
+  </div>
 </section>
 
-<!-- 3. Cómo trabajamos -->
-<section class="aq-sec aq-wrap" aria-labelledby="t-como">
-  <p class="aq-label">Cómo trabajamos</p>
-  <h2 id="t-como">Todo empieza<em>con una charla</em></h2>
-  <p class="aq-lead">Contanos qué te está costando y vemos qué solución le damos.</p>
-  <ol class="aq-steps">
-    <li><strong>Charlamos por WhatsApp</strong><span>Nos contás qué hace tu negocio y qué te quita tiempo o ventas.</span></li>
-    <li><strong>Te pasamos una propuesta</strong><span>Qué hacemos, cómo y cuánto cuesta.</span></li>
-    <li><strong>Lo armamos</strong><span>Plazo: <span class="aq-pending">A completar: cuánto tarda una landing, una página y una tienda</span></span></li>
-    <li><strong>Lo publicamos</strong><span>Tu página queda en línea y lista para que te encuentren.</span></li>
+<section class="qh-svc qh-wrap" id="automatizaciones" aria-labelledby="t2">
+  <div class="qh-vis" aria-hidden="true"><span class="qh-ej">EJEMPLO</span>
+    <div class="ch" id="qh-chat">
+      <div class="ch-head"><i></i><div>Tu negocio<small>en línea</small></div></div>
+      <div class="ch-m in">Hola, ¿tienen turno para mañana?</div>
+      <div class="ch-m out">¡Hola! Sí, tengo a las 10 o a las 16. ¿Cuál te queda mejor?</div>
+      <div class="ch-m in">A las 10</div>
+      <div class="ch-m out">Listo, te anoté ✅ Te mando un recordatorio antes.</div>
+      <div class="ch-typing"><b></b><b></b><b></b></div>
+    </div>
+  </div>
+  <div class="qh-txt">
+    <p class="qh-mono">Automatizaciones</p>
+    <h2 id="t2" class="qh-serif">Tu negocio contesta aunque estés ocupado</h2>
+    <p>Responde mensajes, toma pedidos, da turnos y manda recordatorios de pago.</p>
+    <div class="qh-price"><span>Presupuesto <b>según tu negocio</b></span></div>
+  </div>
+</section>
+
+<section class="qh-svc qh-wrap" id="sistemas" aria-labelledby="t3">
+  <div class="qh-vis" aria-hidden="true"><span class="qh-ej">EJEMPLO</span>
+    <div class="pn" id="qh-panel">
+      <div class="pn-row"><span>Estado</span><div class="pn-sem"><i></i><i></i><i></i></div></div>
+      <p class="pn-label">Clientes al día</p><div class="pn-bar"><b></b></div>
+      <p class="pn-label">Pedidos del mes</p><div class="pn-bar"><b></b></div>
+      <p class="pn-label">Vencimientos cubiertos</p><div class="pn-bar"><b></b></div>
+    </div>
+  </div>
+  <div class="qh-txt">
+    <p class="qh-mono">Sistemas a medida</p>
+    <h2 id="t3" class="qh-serif">Todo tu negocio en un solo lugar</h2>
+    <p>Cuando la planilla ya no alcanza, armamos el sistema para cómo trabajás vos.</p>
+    <div class="qh-price"><span>Presupuesto <b>según tu negocio</b></span></div>
+  </div>
+</section>
+
+<section class="qh-steps qh-wrap" aria-labelledby="t4">
+  <p class="qh-mono">Cómo trabajamos</p>
+  <h2 id="t4" class="qh-anton">Todo empieza con una charla</h2>
+  <ol class="qh-path" style="padding:0;margin:0 auto">
+    <li><strong>Charlamos</strong><span>Por WhatsApp</span></li>
+    <li><strong>Te proponemos</strong><span>Qué, cómo y cuánto</span></li>
+    <li><strong>Lo armamos</strong><span>A medida</span></li>
+    <li><strong>Lo publicamos</strong><span>Listo para que te encuentren</span></li>
   </ol>
 </section>
 
-<!-- 4. Trabajos -->
-<section class="aq-sec aq-wrap aq-work" aria-labelledby="t-trabajos">
-  <p class="aq-label">Trabajos</p>
-  <h2 id="t-trabajos">Lo que ya<em>construimos</em></h2>
-  <ul class="aq-list">
-    <li class="aq-item">
-      <h3><a href="https://changared.com" target="_blank" rel="noopener">ChangaRed</a></h3>
-      <p>Empleados virtuales para el WhatsApp de un negocio. <strong>Gipi</strong> contesta precios y toma pedidos, <strong>Whappi</strong> agenda turnos y los recuerda, y <strong>Clau</strong> manda recordatorios de pago.</p>
-      <p class="aq-price"><span>Automatizaciones</span></p>
-    </li>
-    <li class="aq-item">
-      <h3>Atómica para monotributistas</h3>
-      <p>Sistema de gestión para monotributistas y sus contadores: monitor de categoría, semáforo de riesgo, vencimientos, honorarios e importación de comprobantes de ARCA.</p>
-      <p class="aq-price"><span>Sistema a medida</span></p>
-    </li>
-  </ul>
-</section>
-
-<!-- 5. Preguntas frecuentes -->
-<section class="aq-sec aq-wrap" aria-labelledby="t-faq">
-  <p class="aq-label">Preguntas frecuentes</p>
-  <h2 id="t-faq">Lo que más<em>nos preguntan</em></h2>
-  <div class="aq-faq">
-    <details open><summary>¿Cuánto cuesta una página web?</summary><p>Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio.</p></details>
-    <details><summary>¿Mi página va a aparecer en Google?</summary><p>La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto en el que aparece también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo.</p></details>
-    <details><summary>¿Sirve para mi rubro?</summary><p>Sí. Trabajamos con comercios y profesionales de cualquier rubro. Cada página se arma a medida de lo que vende el negocio y de cómo atiende a sus clientes.</p></details>
-    <details><summary>¿Qué es una automatización?</summary><p>Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos, mandar recordatorios de turno o de pago y mostrar el catálogo con precios.</p></details>
-    <details><summary>¿Cuánto tarda?</summary><p><span class="aq-pending">A completar: plazo de una landing, de una página y de una tienda.</span></p></details>
+<section class="qh-faq qh-wrap" aria-labelledby="t5">
+  <p class="qh-mono">Preguntas frecuentes</p>
+  <h2 id="t5" class="qh-anton">Lo que más nos preguntan</h2>
+  <div class="qh-faq-list">
+    <details><summary>¿Cuánto cuesta una página web?</summary><p>Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio.</p></details>
+    <details><summary>¿Mi página va a aparecer en Google?</summary><p>La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo.</p></details>
+    <details><summary>¿Sirve para mi rubro?</summary><p>Sí. Trabajamos con comercios y profesionales de cualquier rubro, y cada trabajo se arma a medida.</p></details>
+    <details><summary>¿Qué es una automatización?</summary><p>Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos y mandar recordatorios de turno o de pago.</p></details>
     <details><summary>¿Qué necesito para empezar?</summary><p>Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla.</p></details>
   </div>
 </section>
 
-<!-- 6. Cierre -->
-<section class="aq-end aq-wrap">
-  <h2>Hablemos.</h2>
-  <a class="aq-cta" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>Escribinos por WhatsApp</span></a>
+<section class="qh-end qh-wrap">
+  <h2 class="qh-anton">Hablemos.</h2>
+  <a class="qh-cta" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>Escribinos por WhatsApp</span></a>
 </section>
-</main>
 
-<footer class="aq-foot aq-wrap">
+<footer class="qh-foot qh-wrap">
   <p>Atómica Pro · Agencia digital · Posadas, Misiones, Argentina</p>
   <p><a href="https://wa.me/5493764240063">WhatsApp +54 9 376 424-0063</a></p>
-  <p><span class="aq-pending">A completar: email e Instagram</span></p>
 </footer>
 </div>
 
 <script>
-(()=>{const root=document.getElementById('aq'),cv=root.querySelector('canvas'),ctx=cv.getContext('2d');
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let W,H,nodes=[];
+(()=>{const root=document.getElementById('qh');if(!root)return;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Nodos de fondo */
+const cv=root.querySelector('.qh-bg'),ctx=cv.getContext('2d');let W,H,ns=[];
 function size(){const d=Math.min(devicePixelRatio||1,2);W=root.clientWidth;H=root.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
- const n=Math.round(Math.min(55,Math.max(22,W*H/20000)));nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.4+.8}));}
+ const n=Math.round(Math.min(90,Math.max(30,W*H/22000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.4+.8}));}
 function draw(){ctx.clearRect(0,0,W,H);const L=Math.min(140,W/4);
- for(const p of nodes){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
- for(let i=0;i<nodes.length;i++){const a=nodes[i];for(let j=i+1;j<nodes.length;j++){const b=nodes[j],dd=Math.hypot(a.x-b.x,a.y-b.y);
-  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.2})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
-  ctx.fillStyle='rgba(167,220,197,.8)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
- if(!reduce)requestAnimationFrame(draw);}
-size();new ResizeObserver(size).observe(root);requestAnimationFrame(draw);})();
+ for(const p of ns){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
+ for(let i=0;i<ns.length;i++){const a=ns[i];for(let j=i+1;j<ns.length;j++){const b=ns[j],dd=Math.hypot(a.x-b.x,a.y-b.y);
+  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.18})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+  ctx.fillStyle='rgba(167,220,197,.75)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
+ requestAnimationFrame(draw);}
+size();new ResizeObserver(size).observe(root);requestAnimationFrame(draw);
+
+/* Chat que se escribe solo */
+const chat=document.getElementById('qh-chat'),msgs=[...chat.querySelectorAll('.ch-m')],typing=chat.querySelector('.ch-typing');
+const wait=ms=>new Promise(r=>setTimeout(r,ms));
+async function runChat(){
+ if(reduce){msgs.forEach(m=>m.classList.add('show'));return;}
+ while(true){msgs.forEach(m=>m.classList.remove('show'));await wait(700);
+  for(const m of msgs){if(m.classList.contains('out')){chat.insertBefore(typing,m);typing.classList.add('show');await wait(1100);typing.classList.remove('show');}
+   m.classList.add('show');await wait(1300);}
+  chat.appendChild(typing);await wait(2600);}}
+
+/* Panel: semáforo y barras */
+const panel=document.getElementById('qh-panel'),lights=[...panel.querySelectorAll('.pn-sem i')],bars=[...panel.querySelectorAll('.pn-bar b')];
+const states=[[0,[82,64,91]],[1,[58,40,70]],[0,[90,75,96]]];let k=0;
+function tick(){const [l,v]=states[k%states.length];lights.forEach((x,i)=>x.classList.toggle('on',i===l));bars.forEach((b,i)=>b.style.width=v[i]+'%');k++;}
+
+/* Arrancar cuando se ven */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;io.unobserve(e.target);
+ if(e.target===chat)runChat();if(e.target===panel){tick();if(!reduce)setInterval(tick,2600);}}),{threshold:.3});
+io.observe(chat);io.observe(panel);
+})();
 </script>
