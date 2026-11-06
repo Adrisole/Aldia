@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atómica Pro · Trabajos ya hechos (muestra)</title>
+<!-- Atómica Pro · Trabajos ya hechos · pegar en un widget HTML de Elementor -->
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 .at{--bg:#0F3B2F;--tx:#F3E6CF;--nd:#A7DCC5;--vi:#A24BFF;background:var(--bg);color:var(--tx);font-family:"DM Sans",system-ui,sans-serif;padding:clamp(64px,10vw,120px) 0;overflow:hidden;text-align:center}
@@ -28,9 +26,20 @@
 .at-dots button{width:9px;height:9px;border-radius:50%;border:1px solid var(--nd);background:transparent;padding:0;cursor:pointer}
 .at-dots button[aria-current="true"]{background:var(--nd)}
 .at-tag{display:inline-block;margin-top:22px;font:500 10px "DM Mono",monospace;letter-spacing:.12em;opacity:.5}
-</style></head><body style="margin:0">
 
+/* Que el tema de Elementor no pise colores ni letras */
+.at,.at *{font-family:"DM Sans",system-ui,sans-serif!important}
+.at,.at *{color:#F3E6CF!important}
+.at h2,.at p,.at strong,.at small{margin-left:auto;margin-right:auto}
+.at h2 .t1{font-family:"Anton",sans-serif!important}
+.at h2 .t2,.at-info strong{font-family:"Instrument Serif",serif!important;font-style:italic!important}
+.at-label,.at-info small{color:#A7DCC5!important;font-family:"DM Mono",monospace!important}
+.at-info span{font-family:"DM Sans",sans-serif!important}
+.at{position:relative;isolation:isolate}
+.at-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+</style>
 <section class="at" aria-labelledby="at-t">
+  <canvas class="at-bg" aria-hidden="true"></canvas>
   <p class="at-label">Portfolio</p>
   <h2 id="at-t"><span class="t1">Trabajos</span><span class="t2">ya hechos</span></h2>
 
@@ -83,5 +92,16 @@ stage.addEventListener('pointerup',e=>{if(x0===null)return;const dx=e.clientX-x0
 stage.addEventListener('click',e=>{if(stage.dataset.drag)e.preventDefault();});
 stage.addEventListener('mouseenter',()=>clearInterval(timer));stage.addEventListener('mouseleave',auto);
 })();
+
+(()=>{const sec=document.querySelector('.at'),cv=sec.querySelector('.at-bg'),ctx=cv.getContext('2d');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let W,H,ns=[];
+function size(){const d=Math.min(devicePixelRatio||1,2);W=sec.clientWidth;H=sec.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+ const n=Math.round(Math.min(60,Math.max(24,W*H/16000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.9}));}
+function draw(){ctx.clearRect(0,0,W,H);const L=Math.min(150,W/4);
+ for(const p of ns){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
+ for(let i=0;i<ns.length;i++){const a=ns[i];for(let j=i+1;j<ns.length;j++){const b=ns[j],dd=Math.hypot(a.x-b.x,a.y-b.y);
+  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.22})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+  ctx.fillStyle='rgba(167,220,197,.85)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
+ requestAnimationFrame(draw);}
+size();new ResizeObserver(size).observe(sec);requestAnimationFrame(draw);})();
 </script>
-</body></html>

@@ -78,3 +78,8 @@ Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan 
 ## Dos versiones de cada página
 - `muestras/`: para ver en el celu. Las letras y las fotos van adentro del archivo, por eso pesan mucho.
 - `elementor/`: para pegar en WordPress. Son livianas (6 a 18 KB): las letras se cargan de Google Fonts y las fotos se suben a la biblioteca de medios. Después de subir cada foto hay que reemplazar su link en el código.
+
+## Cómo pegar en Elementor
+- Cada archivo de `elementor/` es un bloque listo para un **widget HTML**: no lleva `<html>`, `<head>` ni `<body>`.
+- Ya tiene reglas para que el tema no pise los colores ni las letras.
+- La sección que lo contiene va a **ancho completo** y con **relleno 0**, para que no queden bordes blancos.

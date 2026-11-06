@@ -1,53 +1,5 @@
-<!DOCTYPE html>
-<html lang="es-AR">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<!-- En WordPress, título y descripción van en Yoast o Rank Math -->
-<title>Páginas web y automatizaciones en Posadas | Atómica Pro</title>
-<meta name="description" content="Páginas web, automatizaciones y sistemas a medida para comercios y profesionales de Posadas, Misiones. Landing desde US$ 100. Escribinos por WhatsApp.">
-<link rel="canonical" href="https://atomica.click/que-hacemos/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_AR">
-<meta property="og:site_name" content="Atómica Pro">
-<meta property="og:title" content="Páginas web, automatizaciones y sistemas a medida | Atómica Pro">
-<meta property="og:description" content="Que te encuentren, que vendas y que te sobre tiempo. Agencia digital en Posadas, Misiones.">
-<meta property="og:url" content="https://atomica.click/que-hacemos/">
-
+<!-- Atómica Pro · Qué hacemos · pegar en un widget HTML de Elementor -->
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
-
-<script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@graph":[
-  {"@type":"ProfessionalService","@id":"https://atomica.click/#negocio","name":"Atómica Pro","url":"https://atomica.click/",
-   "description":"Agencia digital de Posadas, Misiones, que hace páginas web, automatizaciones y sistemas a medida para comercios y profesionales.",
-   "telephone":"+5493764240063",
-   "address":{"@type":"PostalAddress","addressLocality":"Posadas","addressRegion":"Misiones","addressCountry":"AR"},
-   "areaServed":[{"@type":"City","name":"Posadas"},{"@type":"State","name":"Misiones"},{"@type":"Country","name":"Argentina"}],
-   "priceRange":"US$ 100 - US$ 450+",
-   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios","itemListElement":[
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Landing (página de una sección)"},"price":"100","priceCurrency":"USD"},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Página web a medida"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"250","priceCurrency":"USD"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Tienda online"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"450","priceCurrency":"USD"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatizaciones para WhatsApp y web"}},
-     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemas a medida"}}
-   ]}
-  },
-  {"@type":"BreadcrumbList","itemListElement":[
-   {"@type":"ListItem","position":1,"name":"Inicio","item":"https://atomica.click/"},
-   {"@type":"ListItem","position":2,"name":"Qué hacemos","item":"https://atomica.click/que-hacemos/"}]},
-  {"@type":"FAQPage","mainEntity":[
-   {"@type":"Question","name":"¿Cuánto cuesta una página web?","acceptedAnswer":{"@type":"Answer","text":"Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio."}},
-   {"@type":"Question","name":"¿Mi página va a aparecer en Google?","acceptedAnswer":{"@type":"Answer","text":"La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto en el que aparece también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo."}},
-   {"@type":"Question","name":"¿Sirve para mi rubro?","acceptedAnswer":{"@type":"Answer","text":"Sí. Trabajamos con comercios y profesionales de cualquier rubro. Cada página se arma a medida de lo que vende el negocio y de cómo atiende a sus clientes."}},
-   {"@type":"Question","name":"¿Qué es una automatización?","acceptedAnswer":{"@type":"Answer","text":"Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos, mandar recordatorios de turno o de pago y mostrar el catálogo con precios."}},
-   {"@type":"Question","name":"¿Qué necesito para empezar?","acceptedAnswer":{"@type":"Answer","text":"Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla."}}
-  ]}
- ]
-}
-</script>
-
 <style>
 .aq{--bg:#0F3B2F;--tx:#F3E6CF;--nd:#A7DCC5;--vi:#A24BFF;--soft:rgba(243,230,207,.72);--line:rgba(243,230,207,.14);
   position:relative;background:var(--bg);color:var(--tx);font-family:"DM Sans",system-ui,sans-serif;line-height:1.6;isolation:isolate;overflow:hidden}
@@ -128,9 +80,50 @@
 .aq-foot{border-top:1px solid var(--line);padding:36px 0 44px;font:500 12px "DM Mono",monospace;letter-spacing:.06em;color:var(--soft);text-align:center}
 .aq-foot p{margin:6px 0}
 @media (prefers-reduced-motion:reduce){.aq-cta i::after{animation:none}.aq-item{transition:none}}
+
+/* Que el tema de Elementor no pise colores ni letras */
+.aq,.aq *{font-family:"DM Sans",system-ui,sans-serif!important}
+.aq,.aq *{color:#F3E6CF!important}
+.aq .aq-label,.aq-price,.aq-faq summary::after{color:#A7DCC5!important}
+.aq-price b{color:#F3E6CF!important}
+.aq-pending{color:rgba(243,230,207,.45)!important}
+.aq-head p,.aq-lead,.aq-item p,.aq-item ul,.aq-faq p,.aq-steps span,.aq-foot{color:rgba(243,230,207,.72)!important}
+.aq-head h1 .t1,.aq-sec h2,.aq-end h2,.aq-logo{font-family:"Anton",sans-serif!important}
+.aq-head h1 .t2,.aq-sec h2 em,.aq-item h3,.aq-item h3 a,.aq-steps strong,.aq-faq summary{font-family:"Instrument Serif",serif!important;font-style:italic!important}
+.aq-label,.aq-price,.aq-foot,.aq-top nav a{font-family:"DM Mono",monospace!important}
+.aq canvas{position:absolute!important}
 </style>
-</head>
-<body style="margin:0">
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@graph":[
+  {"@type":"ProfessionalService","@id":"https://atomica.click/#negocio","name":"Atómica Pro","url":"https://atomica.click/",
+   "description":"Agencia digital de Posadas, Misiones, que hace páginas web, automatizaciones y sistemas a medida para comercios y profesionales.",
+   "telephone":"+5493764240063",
+   "address":{"@type":"PostalAddress","addressLocality":"Posadas","addressRegion":"Misiones","addressCountry":"AR"},
+   "areaServed":[{"@type":"City","name":"Posadas"},{"@type":"State","name":"Misiones"},{"@type":"Country","name":"Argentina"}],
+   "priceRange":"US$ 100 - US$ 450+",
+   "hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios","itemListElement":[
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Landing (página de una sección)"},"price":"100","priceCurrency":"USD"},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Página web a medida"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"250","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Tienda online"},"priceSpecification":{"@type":"PriceSpecification","minPrice":"450","priceCurrency":"USD"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Automatizaciones para WhatsApp y web"}},
+     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemas a medida"}}
+   ]}
+  },
+  {"@type":"BreadcrumbList","itemListElement":[
+   {"@type":"ListItem","position":1,"name":"Inicio","item":"https://atomica.click/"},
+   {"@type":"ListItem","position":2,"name":"Qué hacemos","item":"https://atomica.click/que-hacemos/"}]},
+  {"@type":"FAQPage","mainEntity":[
+   {"@type":"Question","name":"¿Cuánto cuesta una página web?","acceptedAnswer":{"@type":"Answer","text":"Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio."}},
+   {"@type":"Question","name":"¿Mi página va a aparecer en Google?","acceptedAnswer":{"@type":"Answer","text":"La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto en el que aparece también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo."}},
+   {"@type":"Question","name":"¿Sirve para mi rubro?","acceptedAnswer":{"@type":"Answer","text":"Sí. Trabajamos con comercios y profesionales de cualquier rubro. Cada página se arma a medida de lo que vende el negocio y de cómo atiende a sus clientes."}},
+   {"@type":"Question","name":"¿Qué es una automatización?","acceptedAnswer":{"@type":"Answer","text":"Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos, mandar recordatorios de turno o de pago y mostrar el catálogo con precios."}},
+   {"@type":"Question","name":"¿Qué necesito para empezar?","acceptedAnswer":{"@type":"Answer","text":"Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla."}}
+  ]}
+ ]
+}
+</script>
 <div class="aq" id="aq">
 <canvas aria-hidden="true"></canvas>
 
@@ -245,7 +238,7 @@
 <script>
 (()=>{const root=document.getElementById('aq'),cv=root.querySelector('canvas'),ctx=cv.getContext('2d');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let W,H,nodes=[];
-function size(){const d=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+function size(){const d=Math.min(devicePixelRatio||1,2);W=root.clientWidth;H=root.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
  const n=Math.round(Math.min(55,Math.max(22,W*H/20000)));nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.2,vy:(Math.random()-.5)*.2,r:Math.random()*1.4+.8}));}
 function draw(){ctx.clearRect(0,0,W,H);const L=Math.min(140,W/4);
  for(const p of nodes){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
@@ -253,7 +246,5 @@ function draw(){ctx.clearRect(0,0,W,H);const L=Math.min(140,W/4);
   if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.2})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
   ctx.fillStyle='rgba(167,220,197,.8)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
  if(!reduce)requestAnimationFrame(draw);}
-size();addEventListener('resize',size);requestAnimationFrame(draw);})();
+size();new ResizeObserver(size).observe(root);requestAnimationFrame(draw);})();
 </script>
-</body>
-</html>

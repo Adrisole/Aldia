@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html lang="es-AR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atómica Pro · Muestra de portada</title>
-
+<!-- Atómica Pro · Portada · pegar en un widget HTML de Elementor -->
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
 .ap{--bg:#0F3B2F;--tx:#F3E6CF;--nd:#A7DCC5;--vi:#A24BFF;position:relative;min-height:100svh;background:var(--bg);color:var(--tx);font-family:"DM Sans",system-ui,sans-serif;overflow:hidden;display:flex;flex-direction:column;isolation:isolate}
@@ -33,10 +30,17 @@
 .ap-tag{position:absolute;top:64px;left:50%;transform:translateX(-50%);font:500 10px "DM Mono",monospace;letter-spacing:.12em;background:rgba(0,0,0,.25);padding:4px 10px;border-radius:99px;opacity:.6;white-space:nowrap}
 @media (max-width:480px){.ap-path{font-size:9px;letter-spacing:.08em}.ap-line{margin:0 4px 22px}}
 @media (prefers-reduced-motion:reduce){.ap-node::after{animation:none}}
-</style></head><body style="margin:0">
 
+/* Que el tema de Elementor no pise colores ni letras */
+.ap,.ap *{font-family:"DM Sans",system-ui,sans-serif!important}
+.ap,.ap *{color:#F3E6CF!important}
+.ap h1 .t1,.ap-logo{font-family:"Anton",sans-serif!important}
+.ap h1 .t2{font-family:"Instrument Serif",serif!important;font-style:italic!important}
+.ap-eyebrow,.ap-step,.ap-top a,.ap-tag,.ap-logo small{font-family:"DM Mono",monospace!important}
+.ap-eyebrow{color:#A7DCC5!important}.ap-step{color:rgba(243,230,207,.45)!important}.ap-step.on{color:#F3E6CF!important}
+.ap h1,.ap p{margin-left:auto!important;margin-right:auto!important}
+</style>
 <section class="ap" id="ap">
-  <div class="ap-tag">MUESTRA · NO ES LA WEB FINAL</div>
   <canvas aria-hidden="true"></canvas>
   <header class="ap-top">
     <div class="ap-logo">Atómica<small>PRO</small></div>
@@ -87,4 +91,3 @@ function tick(){steps.forEach((s,i)=>s.classList.toggle('on',i<=k));lines.forEac
 if(reduce){steps.forEach(s=>s.classList.add('on'));lines.forEach(l=>l.classList.add('on'));}else{tick();setInterval(tick,900);}
 })();
 </script>
-</body></html>
