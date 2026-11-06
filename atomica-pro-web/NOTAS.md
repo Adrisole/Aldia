@@ -67,7 +67,7 @@
 - [x] ChangaRed son 2 proyectos: empleados virtuales para WhatsApp = changared.com; buscador de trabajadores en Misiones = changared.online. Los dos van en Trabajos (3 tarjetas en total).
 - [ ] **Decidir dominio:** el sistema de monotributistas ya usa atomica.click. ¿Agencia en atomica.click y sistema en app.atomica.click, o agencia en otro dominio?
 - [ ] Plazo de entrega de una landing, una página web y una tienda.
-- [ ] Email de la agencia.
+- [x] Email: atomicaclik@gmail.com (puesto en contacto y Qué hacemos).
 - [ ] Instagram de la agencia.
 - [ ] Revisar los textos que propuso Claude: los pasos de "Cómo trabajamos" y la respuesta sobre Google.
 - [ ] Más adelante: crear la ficha de Google Maps y dar de alta el sitio en Search Console.
