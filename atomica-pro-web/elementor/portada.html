@@ -104,6 +104,6 @@ if(reduce){steps.forEach(s=>s.classList.add('on'));lines.forEach(l=>l.classList.
 
 /* Efectos al hacer scroll */
 (()=>{const els=document.querySelectorAll('.ap [data-reveal]');if(matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(e=>e.classList.add('in'));return;}
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});
 els.forEach(e=>io.observe(e));})();
 </script>

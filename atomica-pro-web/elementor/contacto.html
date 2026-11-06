@@ -1,0 +1,86 @@
+<!-- Atómica Pro · Contacto / cierre (Inicio, al final) · pegar en un widget HTML de Elementor -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@1&family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+.ct{--bg:#0F3B2F;--line:rgba(243,230,207,.16);position:relative;isolation:isolate;overflow:hidden;background:var(--bg);width:100%;padding:clamp(80px,11vw,140px) 0 clamp(40px,5vw,60px)!important}
+.ct,.ct *{box-sizing:border-box;font-family:"DM Sans",system-ui,sans-serif!important;color:#F3E6CF!important}
+.ct h2,.ct p{margin:0}
+.ct a{text-decoration:none!important}
+.ct-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.ct-in{width:100%;max-width:1240px;margin:0 auto!important;padding:0 clamp(22px,5vw,56px)!important}
+
+.ct-top{border-top:1px solid var(--line);padding-top:20px!important;font-family:"DM Mono",monospace!important;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#A7DCC5!important}
+.ct-title{margin:clamp(44px,6vw,70px) 0 clamp(44px,6vw,60px)!important;max-width:1100px}
+.ct-title .t1{display:block;font-family:"Anton",sans-serif!important;font-weight:400!important;text-transform:uppercase;font-size:clamp(42px,7.4vw,118px);line-height:.92}
+.ct-title .t2{display:block;font-family:"Instrument Serif",serif!important;font-style:italic!important;font-weight:400!important;font-size:clamp(32px,5vw,78px);line-height:1.02;margin-top:6px}
+
+.ct-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;border-top:1px solid var(--line);padding-top:26px!important}
+.ct-bottom p{max-width:400px;font-size:16px;line-height:1.6;color:rgba(243,230,207,.7)!important}
+.ct-cta{display:inline-flex;align-items:center;gap:16px;font-weight:600;font-size:17px;padding:8px 4px}
+.ct-cta i{position:relative;width:18px;height:18px;border-radius:50%;background:#A24BFF;flex:none}
+.ct-cta i::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid #A24BFF;animation:ct-p 2.2s ease-out infinite}
+@keyframes ct-p{from{transform:scale(.5);opacity:.7}to{transform:scale(1.6);opacity:0}}
+.ct-cta span{border-bottom:1px solid rgba(243,230,207,.45);padding-bottom:4px;transition:border-color .2s}
+.ct-cta b{font-size:21px;font-weight:400;color:#A24BFF!important;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.ct-cta:hover span{border-color:#F3E6CF}
+.ct-cta:hover b{transform:translateX(8px)}
+.ct-cta:focus-visible{outline:2px solid #A7DCC5;outline-offset:6px}
+
+.ct-foot{margin-top:clamp(60px,9vw,110px)!important;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px;font-family:"DM Mono",monospace!important;font-size:11.5px;letter-spacing:.06em;opacity:.6}
+
+@media (max-width:700px){.ct-bottom{display:block}.ct-bottom p{margin-bottom:30px!important}.ct-foot{display:block}.ct-foot span{display:block;margin:4px 0}}
+@media (prefers-reduced-motion:reduce){.ct-cta i::after{animation:none}}
+
+/* Efectos al hacer scroll */
+.ct [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.8,.2,1) var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.ct [data-reveal="zoom"]{transform:scale(.94)}
+.ct [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ct [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
+</style>
+
+<section class="ct" id="contacto">
+  <canvas class="ct-bg" aria-hidden="true"></canvas>
+  <div class="ct-in">
+    <p class="ct-top" data-reveal>Hablemos de lo que sigue</p>
+
+    <h2 class="ct-title" data-reveal="zoom" style="--d:.1s">
+      <span class="t1">¿Qué debería funcionar mejor</span>
+      <span class="t2">en tu negocio?</span>
+    </h2>
+
+    <div class="ct-bottom" data-reveal style="--d:.25s">
+      <p>Contanos qué querés ordenar, construir o automatizar. Vemos juntos si Atómica es el equipo indicado para resolverlo.</p>
+      <a class="ct-cta" href="https://wa.me/5493764240063?text=Hola%20At%C3%B3mica%2C%20quiero%20hablar%20sobre%20mi%20proyecto." target="_blank" rel="noopener noreferrer">
+        <i aria-hidden="true"></i><span>Hablemos de tu proyecto</span><b aria-hidden="true">→</b>
+      </a>
+    </div>
+
+    <div class="ct-foot" data-reveal style="--d:.35s">
+      <span>Atómica Pro · Agencia digital · Posadas, Misiones, Argentina</span>
+      <span><a href="https://wa.me/5493764240063">WhatsApp +54 9 376 424-0063</a></span>
+    </div>
+  </div>
+</section>
+
+<script>
+(()=>{const sec=document.querySelector('.ct');if(!sec)return;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Nodos: mismos valores que el código original */
+const cv=sec.querySelector('.ct-bg'),ctx=cv.getContext('2d');let W,H,ns=[],mouse=null;
+function size(){const d=Math.min(devicePixelRatio||1,2);W=sec.clientWidth;H=sec.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
+ const n=Math.round(Math.min(200,Math.max(40,W*H/14000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:Math.random()*2+1.5}));}
+sec.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=sec.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top};});
+sec.addEventListener('pointerleave',()=>mouse=null);
+function draw(){ctx.clearRect(0,0,W,H);const L=120,R=180;
+ for(const p of ns){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
+ for(let i=0;i<ns.length;i++){const a=ns[i];
+  for(let j=i+1;j<ns.length;j++){const b=ns[j],dd=Math.hypot(a.x-b.x,a.y-b.y);if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.3})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+  if(mouse){const md=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(md<R){ctx.strokeStyle=`rgba(167,220,197,${(1-md/R)*.6})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
+  ctx.fillStyle='rgba(167,220,197,.85)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
+ requestAnimationFrame(draw);}
+size();new ResizeObserver(size).observe(sec);requestAnimationFrame(draw);
+/* Efectos al hacer scroll */
+const els=sec.querySelectorAll('[data-reveal]');
+if(reduce)els.forEach(e=>e.classList.add('in'));
+else{const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.08});els.forEach(e=>io.observe(e));}
+})();
+</script>

@@ -83,3 +83,11 @@ Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan 
 - Cada archivo de `elementor/` es un bloque listo para un **widget HTML**: no lleva `<html>`, `<head>` ni `<body>`.
 - Ya tiene reglas para que el tema no pise los colores ni las letras.
 - La sección que lo contiene va a **ancho completo** y con **relleno 0**, para que no queden bordes blancos.
+
+## Inicio en Elementor (4 widgets HTML, en este orden)
+1. `elementor/portada.html`
+2. `elementor/servicios.html` (los links llevan a Qué hacemos)
+3. `elementor/trabajos.html`
+4. `elementor/contacto.html` (cierre con mini pie)
+
+Página aparte "Qué hacemos": `elementor/que-hacemos.html` (slug `que-hacemos`).
