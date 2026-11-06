@@ -63,7 +63,7 @@
 
 ## Pendiente de Adriana
 - [ ] Captura de Atómica para monotributistas.
-- [ ] Captura de ChangaRed.
+- [x] Captura de ChangaRed (en `fotos/changared.webp`, ya puesta en la tarjeta).
 - [ ] Confirmar que el dominio de ChangaRed es changared.com.
 - [ ] Plazo de entrega de una landing, una página web y una tienda.
 - [ ] Email de la agencia.
