@@ -126,6 +126,11 @@ Próximos artículos/páginas sugeridos:
 3. Sistema de turnos online / software a medida
 
 ## Artículo de precios
-- `elementor/articulo-precios.html` → página nueva, slug `cuanto-cuesta-una-pagina-web`.
+- `elementor/articulo-precios.html` → página nueva, slug `cuanto-cuesta-una-pagina-web-en-argentina` (publicado).
 - Título SEO: "¿Cuánto cuesta una página web en Argentina? (2026)" · Descripción: "Landing US$ 100, página web desde US$ 250 y tienda online desde US$ 450. Qué incluye cada opción y de qué depende el precio. Atómica Pro, Posadas."
 - Palabra clave principal: "cuánto cuesta una página web en Argentina".
+
+## Artículo bot de WhatsApp
+- `elementor/articulo-bot-whatsapp.html` → página nueva, slug `bot-de-whatsapp-para-negocios`.
+- Título SEO: "Bot de WhatsApp para tu negocio: qué hace y cuánto cuesta" · Descripción: "Un bot de WhatsApp contesta precios, toma pedidos, da turnos y cobra por vos. Conocé ChangaRed: 1 mes gratis y después USD 19 por mes. Atómica Pro."
+- Palabras clave: bot de whatsapp (210/mes, KD 19), chatbot whatsapp (390/mes, KD 27).
