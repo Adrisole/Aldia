@@ -1,0 +1,137 @@
+<!-- Atómica Pro · PIE DE PÁGINA · widget HTML aparte, abajo de todo -->
+<style>
+.pie{background:#0F3B2F;width:100%;padding:28px 0 34px!important;border-top:1px solid rgba(243,230,207,.14)}
+.pie,.pie *{box-sizing:border-box;font-family:"DM Mono",monospace!important;color:#F3E6CF!important}
+.pie-in{max-width:1240px;margin:0 auto!important;padding:0 clamp(22px,5vw,56px)!important;display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 30px;font-size:11.5px;letter-spacing:.05em;line-height:1.9}
+.pie-in>span{opacity:.85}
+.pie a{text-decoration:none!important}
+@media (max-width:700px){.pie-in{display:block}.pie-in>span{display:block;margin:3px 0}}
+/* Fila legal del pie */
+.legal-row{display:block;width:100%;margin-top:14px;padding-top:14px;border-top:1px solid rgba(243,230,207,.14);font-family:"DM Mono",monospace!important;font-size:11px;letter-spacing:.04em;line-height:1.9}
+.legal-row a{text-decoration:underline!important;text-underline-offset:3px}
+
+/* Ventanas legales */
+.lgm{padding:0!important;border:0!important;background:transparent!important;max-width:min(720px,92vw)!important;width:100%;max-height:86vh}
+.lgm::backdrop{background:rgba(5,20,15,.72);backdrop-filter:blur(3px)}
+.lgm,.lgm *{box-sizing:border-box;font-family:"DM Sans",system-ui,sans-serif!important;color:#F3E6CF!important}
+.lgm-box{background:#0F3B2F;border:1px solid rgba(243,230,207,.18);border-radius:16px;display:flex;flex-direction:column;max-height:86vh;overflow:hidden}
+.lgm-head{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 24px!important;border-bottom:1px solid rgba(243,230,207,.14)}
+.lgm-head h2{margin:0!important;font-family:"Instrument Serif",serif!important;font-style:italic!important;font-weight:400!important;font-size:clamp(26px,4vw,36px);line-height:1.1}
+.lgm-x{background:none!important;border:1px solid rgba(243,230,207,.3)!important;border-radius:50%;width:38px;height:38px;cursor:pointer;font-size:15px;flex:none;padding:0!important}
+.lgm-x:hover{border-color:#F3E6CF!important}
+.lgm-body{overflow-y:auto;padding:8px 24px 28px!important;line-height:1.7}
+.lgm-body h3{font-size:16px;font-weight:600;margin:22px 0 6px!important}
+.lgm-body p,.lgm-body li{font-size:15.5px;color:rgba(243,230,207,.8)!important;margin:0}
+.lgm-body p{margin-top:10px!important}
+.lgm-body ul{padding-left:1.2em!important;margin:8px 0 0!important}
+.lgm-body li{margin:4px 0!important}
+.lgm-body li::marker{color:#A7DCC5}
+.lgm-body a{text-decoration:underline!important}
+.lgm-body .lg-pend{color:rgba(243,230,207,.45)!important;font-style:italic}
+.lgm-body .lg-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px!important}
+.lgm-body .lg-btn{display:inline-flex;align-items:center;gap:12px;padding:13px 20px!important;border:1px solid rgba(243,230,207,.35);border-radius:999px;font-weight:600;text-decoration:none!important}
+.lgm-body .lg-btn i{width:12px;height:12px;border-radius:50%;background:#A24BFF;flex:none}
+.legal-row button{all:unset;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-family:"DM Mono",monospace!important;font-size:11px;color:#F3E6CF!important}
+.legal-row button:focus-visible{outline:2px solid #A7DCC5;outline-offset:3px}
+.legal-row button.strong{font-weight:600}
+</style>
+
+<footer class="pie">
+  <div class="pie-in">
+    <span>Atómica Pro · Agencia digital · Posadas, Misiones, Argentina</span>
+    <span><a href="https://wa.me/5493764240063">WhatsApp +54 9 376 424-0063</a> · <a href="mailto:atomicaclik@gmail.com">atomicaclik@gmail.com</a></span>
+    <span class="legal-row">© 2026 Atómica Pro · <button type="button" data-legal="privacidad">Privacidad</button> · <button type="button" data-legal="terminos">Términos</button> · <button type="button" data-legal="arrepentimiento" class="strong">Botón de arrepentimiento</button> · <!-- DATA FISCAL: reemplazar # por el link del QR de ARCA --><a href="#" target="_F960AFIPInfo" rel="noopener">Data Fiscal</a></span>
+  </div>
+</footer>
+
+<dialog class="lgm" id="lgm-privacidad" aria-labelledby="lgm-privacidad-t">
+  <div class="lgm-box">
+    <div class="lgm-head"><h2 id="lgm-privacidad-t">Política de privacidad</h2><button type="button" class="lgm-x" aria-label="Cerrar">✕</button></div>
+    <div class="lgm-body">
+<p>Esta política explica qué datos personales recibe Atómica Pro, para qué los usa y cómo podés ejercer tus derechos, de acuerdo con la Ley 25.326 de Protección de los Datos Personales.</p>
+
+    <h3>Quién es responsable de tus datos</h3>
+    <p>Adriana Soledad Oviedo (Atómica Pro), CUIT 27-29210776-0, con domicilio en Posadas, Misiones, Argentina. Contacto: <a href="mailto:atomicaclik@gmail.com">atomicaclik@gmail.com</a>.</p>
+
+    <h3>Qué datos recibimos</h3>
+    <ul>
+      <li>Los que nos das al escribirnos por WhatsApp o email: nombre, teléfono, email y lo que nos contás de tu negocio.</li>
+      <li>Los necesarios para presupuestar, prestar el servicio y facturar.</li>
+      <li>Datos técnicos de navegación que registra el sitio, como cookies propias de WordPress. <span class="lg-pend">[Completar si se usa Google Analytics, Meta Pixel u otra herramienta de medición.]</span></li>
+    </ul>
+
+    <h3>Para qué los usamos</h3>
+    <ul>
+      <li>Responder tus consultas y enviarte presupuestos.</li>
+      <li>Prestar el servicio contratado y comunicarnos durante el trabajo.</li>
+      <li>Facturar y cumplir obligaciones legales.</li>
+    </ul>
+    <p>No vendemos ni cedemos tus datos a terceros. Para comunicarnos y trabajar usamos servicios de terceros, como WhatsApp, Gmail y el proveedor de alojamiento del sitio, que tratan los datos según sus propias políticas.</p>
+
+    <h3>Cuánto tiempo los guardamos</h3>
+    <p>Mientras dure la relación comercial y el tiempo que exijan las normas fiscales. Después se eliminan o se anonimizan.</p>
+
+    <h3>Tus derechos</h3>
+    <p>Podés pedir acceso, rectificación, actualización o eliminación de tus datos escribiendo a <a href="mailto:atomicaclik@gmail.com">atomicaclik@gmail.com</a>. El titular de los datos personales tiene la facultad de ejercer el derecho de acceso a los mismos en forma gratuita a intervalos no inferiores a seis meses, salvo que se acredite un interés legítimo al efecto, conforme lo establecido en el artículo 14, inciso 3 de la Ley N° 25.326.</p>
+    <p>La AGENCIA DE ACCESO A LA INFORMACIÓN PÚBLICA, en su carácter de Órgano de Control de la Ley N° 25.326, tiene la atribución de atender las denuncias y reclamos que interpongan quienes resulten afectados en sus derechos por incumplimiento de las normas vigentes en materia de protección de datos personales.</p>
+    </div>
+  </div>
+</dialog>
+<dialog class="lgm" id="lgm-terminos" aria-labelledby="lgm-terminos-t">
+  <div class="lgm-box">
+    <div class="lgm-head"><h2 id="lgm-terminos-t">Términos y condiciones</h2><button type="button" class="lgm-x" aria-label="Cerrar">✕</button></div>
+    <div class="lgm-body">
+<p>Estos términos aplican a los servicios de Atómica Pro: páginas web, tiendas online, automatizaciones y sistemas a medida.</p>
+
+    <h3>Presupuesto</h3>
+    <p>Cada trabajo empieza con un presupuesto por escrito (por WhatsApp o email) que detalla qué incluye, el precio y el plazo. Lo que no figure en el presupuesto se cotiza aparte.</p>
+
+    <h3>Precios y pagos</h3>
+    <ul>
+      <li>Los precios publicados son de referencia: landing US$ 100, página web desde US$ 250, tienda online desde US$ 450. Automatizaciones y sistemas, según presupuesto.</li>
+      <li>Se puede pagar en dólares o en pesos, por transferencia o Mercado Pago. <span class="lg-pend">[Completar: qué tipo de cambio se usa para pagar en pesos.]</span></li>
+      <li><span class="lg-pend">[Completar: si se pide seña y de cuánto, y cuándo se paga el saldo.]</span></li>
+    </ul>
+
+    <h3>Plazos y materiales</h3>
+    <p>El plazo corre desde que recibimos el pago acordado para empezar y los materiales del cliente (textos, fotos, logo, datos). Si los materiales se demoran, el plazo se corre en la misma medida.</p>
+    <p>El cliente garantiza que tiene derecho a usar los textos, fotos y marcas que nos entrega.</p>
+
+    <h3>Cambios y revisiones</h3>
+    <p><span class="lg-pend">[Completar: cuántas rondas de cambios incluye cada servicio.]</span> Los cambios que excedan lo acordado se presupuestan aparte.</p>
+
+    <h3>Propiedad y dominio</h3>
+    <p>Con el pago total, el sitio y sus contenidos pasan a ser del cliente. <span class="lg-pend">[Completar: a nombre de quién se registran el dominio y el alojamiento, y quién los paga cada año.]</span></p>
+
+    <h3>Lo que no prometemos</h3>
+    <p>Armamos cada sitio con buenas prácticas para Google, pero el puesto en los resultados depende también de la competencia y del tiempo. No garantizamos posiciones ni cantidad de ventas.</p>
+
+    <h3>Consumidores</h3>
+    <p>Si sos consumidor final, tenés los derechos de la Ley 24.240 de Defensa del Consumidor, incluido el derecho a revocar la contratación (ver Botón de arrepentimiento). Podés hacer reclamos ante la autoridad de Defensa del Consumidor.</p>
+
+    <h3>Jurisdicción</h3>
+    <p>Para cualquier controversia rigen las leyes de la República Argentina y son competentes los tribunales ordinarios de Posadas, Misiones, sin perjuicio del derecho del consumidor a elegir los tribunales de su domicilio.</p>
+    </div>
+  </div>
+</dialog>
+<dialog class="lgm" id="lgm-arrepentimiento" aria-labelledby="lgm-arrepentimiento-t">
+  <div class="lgm-box">
+    <div class="lgm-head"><h2 id="lgm-arrepentimiento-t">Botón de arrepentimiento</h2><button type="button" class="lgm-x" aria-label="Cerrar">✕</button></div>
+    <div class="lgm-body">
+<p>Si contrataste a distancia (por WhatsApp, email o este sitio), tenés derecho a revocar la aceptación dentro de los <strong>10 días corridos</strong> desde la contratación, sin costo ni responsabilidad, según el artículo 34 de la Ley 24.240 y la Resolución 424/2020.</p>
+    <p>Para hacerlo, mandanos tu pedido con tu nombre, tu teléfono o email y qué servicio contrataste. Dentro de las 24 horas te enviamos un código de identificación de tu solicitud.</p>
+    <div class="lg-btns">
+      <a class="lg-btn" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20ejercer%20mi%20derecho%20de%20arrepentimiento.%20Nombre%3A%20%20%7C%20Servicio%20contratado%3A%20%20%7C%20Fecha%3A%20" target="_blank" rel="noopener"><i aria-hidden="true"></i>Arrepentirme por WhatsApp</a>
+      <a class="lg-btn" href="mailto:atomicaclik@gmail.com?subject=Bot%C3%B3n%20de%20arrepentimiento&body=Nombre%3A%0AServicio%20contratado%3A%0AFecha%20de%20contrataci%C3%B3n%3A%0ATel%C3%A9fono%3A"><i aria-hidden="true"></i>Arrepentirme por email</a>
+    </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* Ventanas legales */
+(()=>{document.querySelectorAll('[data-legal]').forEach(b=>b.addEventListener('click',()=>{const d=document.getElementById('lgm-'+b.dataset.legal);if(d&&!d.open)d.showModal();}));
+document.querySelectorAll('dialog.lgm').forEach(d=>{d.querySelector('.lgm-x').addEventListener('click',()=>d.close());
+ d.addEventListener('click',e=>{if(e.target===d)d.close();});});
+if(location.hash.startsWith('#legal-')){const d=document.getElementById('lgm-'+location.hash.slice(7));if(d)d.showModal();}})();
+</script>

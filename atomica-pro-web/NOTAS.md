@@ -88,7 +88,8 @@ Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan 
 1. `elementor/portada.html`
 2. `elementor/servicios.html` (los links llevan a Qué hacemos)
 3. `elementor/trabajos.html`
-4. `elementor/contacto.html` (cierre con mini pie)
+4. `elementor/contacto.html` (cierre)
+5. `elementor/pie.html` (pie de página con legales en ventanas; va abajo de todo)
 
 Página aparte "Qué hacemos": `elementor/que-hacemos.html` (slug `que-hacemos`).
 
