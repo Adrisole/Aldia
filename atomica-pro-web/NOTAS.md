@@ -89,6 +89,7 @@ Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan 
 2. `elementor/franja.html` (franja crema que pasa, separadores = nodos violeta)
 3. `elementor/servicios.html` (los links llevan a Qué hacemos)
 4. `elementor/trabajos.html`
+4b. `elementor/logos.html` (logos de herramientas que pasan, debajo de Trabajos)
 5. `elementor/contacto.html` (cierre)
 6. `elementor/pie.html` (pie de página con legales en ventanas; va abajo de todo)
 
