@@ -86,10 +86,11 @@ Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan 
 
 ## Inicio en Elementor (4 widgets HTML, en este orden)
 1. `elementor/portada.html`
-2. `elementor/servicios.html` (los links llevan a Qué hacemos)
-3. `elementor/trabajos.html`
-4. `elementor/contacto.html` (cierre)
-5. `elementor/pie.html` (pie de página con legales en ventanas; va abajo de todo)
+2. `elementor/franja.html` (franja crema que pasa, separadores = nodos violeta)
+3. `elementor/servicios.html` (los links llevan a Qué hacemos)
+4. `elementor/trabajos.html`
+5. `elementor/contacto.html` (cierre)
+6. `elementor/pie.html` (pie de página con legales en ventanas; va abajo de todo)
 
 Página aparte "Qué hacemos": `elementor/que-hacemos.html` (slug `que-hacemos`).
 

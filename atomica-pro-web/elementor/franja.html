@@ -1,0 +1,20 @@
+<!-- Atómica Pro · FRANJA QUE PASA · widget HTML aparte (por ejemplo, entre la portada y servicios) -->
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<style>
+.fr{background:#F3E6CF;width:100%;overflow:hidden;padding:14px 0!important;border-top:1px solid #0F3B2F;border-bottom:1px solid #0F3B2F}
+.fr *{box-sizing:border-box}
+.fr-track{display:flex;width:max-content;animation:fr-move 28s linear infinite}
+.fr:hover .fr-track{animation-play-state:paused}
+.fr-group{display:flex;align-items:center;flex:none}
+.fr-group span{font-family:"Anton",sans-serif!important;font-weight:400!important;font-size:clamp(18px,2.4vw,28px);letter-spacing:.04em;text-transform:uppercase;color:#0F3B2F!important;white-space:nowrap;padding:0 22px}
+.fr-group i{width:10px;height:10px;border-radius:50%;background:#A24BFF;flex:none}
+@keyframes fr-move{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.fr-track{animation:none}}
+</style>
+
+<div class="fr" aria-label="Páginas web, automatizaciones, sistemas a medida, tiendas online, Google, WhatsApp">
+  <div class="fr-track" aria-hidden="true">
+    <div class="fr-group"><span>Páginas web</span><i></i><span>Automatizaciones</span><i></i><span>Sistemas a medida</span><i></i><span>Tiendas online</span><i></i><span>Google</span><i></i><span>WhatsApp</span><i></i></div>
+    <div class="fr-group"><span>Páginas web</span><i></i><span>Automatizaciones</span><i></i><span>Sistemas a medida</span><i></i><span>Tiendas online</span><i></i><span>Google</span><i></i><span>WhatsApp</span><i></i></div>
+  </div>
+</div>
