@@ -91,3 +91,15 @@ Armar el Inicio completo: portada, servicios con visuales, trabajos que empujan 
 4. `elementor/contacto.html` (cierre con mini pie)
 
 Página aparte "Qué hacemos": `elementor/que-hacemos.html` (slug `que-hacemos`).
+
+## Legales (página aparte, slug `legales`) — BORRADOR, revisar con abogado/contador
+- Titular: Adriana Soledad Oviedo · CUIT 27-29210776-0 · Posadas, Misiones. Pagos: dólares o pesos, transferencia o Mercado Pago.
+- `elementor/legales.html`: datos del titular, política de privacidad (Ley 25.326), términos y condiciones, botón de arrepentimiento (Ley 24.240 art. 34, Res. 424/2020).
+- Fila legal en el pie de contacto y de Qué hacemos: ©, titular, CUIT, links a legales y Data Fiscal.
+- Pendiente:
+  - [ ] Link del QR de Data Fiscal (ARCA): reemplazar el `#` en la fila legal.
+  - [ ] Tipo de cambio para pagar en pesos.
+  - [ ] Seña (sí/no, cuánto) y cuándo se paga el saldo.
+  - [ ] Rondas de cambios incluidas.
+  - [ ] A nombre de quién van el dominio y el hosting, y quién los paga.
+  - [ ] Si se usa Google Analytics / Meta Pixel (para la parte de cookies).
