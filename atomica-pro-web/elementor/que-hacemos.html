@@ -126,6 +126,14 @@
   .qh-path li::before{position:absolute;left:0;top:4px;margin:0}
 }
 @media (prefers-reduced-motion:reduce){.ph-page,.ph-wa,.qh-cta i::after{animation:none}}
+
+/* Efectos al hacer scroll */
+.qh [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.8,.2,1) var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.qh [data-reveal="left"]{transform:translateX(-48px)}
+.qh [data-reveal="right"]{transform:translateX(48px)}
+.qh [data-reveal="zoom"]{transform:scale(.92)}
+.qh [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.qh [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 
 <script type="application/ld+json">
@@ -159,19 +167,19 @@
 </header>
 
 <section class="qh-head qh-wrap">
-  <p class="qh-mono">Qué hacemos</p>
-  <h1><span class="t1 qh-anton">Páginas web y automatizaciones</span><span class="t2 qh-serif">a medida, en Posadas</span></h1>
+  <p class="qh-mono" data-reveal>Qué hacemos</p>
+  <h1 data-reveal style="--d:.1s"><span class="t1 qh-anton">Páginas web y automatizaciones</span><span class="t2 qh-serif">a medida, en Posadas</span></h1>
 </section>
 
 <section class="qh-svc qh-wrap" id="pagina-web" aria-labelledby="t1">
-  <div class="qh-vis" aria-hidden="true"><span class="qh-ej">EJEMPLO</span>
+  <div class="qh-vis" aria-hidden="true" data-reveal="zoom"><span class="qh-ej">EJEMPLO</span>
     <div class="ph"><div class="ph-screen"><div class="ph-page">
       <div class="ph-nav"></div><div class="ph-hero"></div><div class="ph-line"></div><div class="ph-line s"></div>
       <div class="ph-cards"><span></span><span></span><span></span><span></span></div>
       <div class="ph-line"></div><div class="ph-line s"></div><div class="ph-hero"></div>
     </div></div><span class="ph-wa"></span></div>
   </div>
-  <div class="qh-txt">
+  <div class="qh-txt" data-reveal style="--d:.15s">
     <p class="qh-mono">Página web a medida</p>
     <h2 id="t1" class="qh-serif">Que te encuentren y te escriban</h2>
     <p>Aparecé en Google y llevá cada visita directo a tu WhatsApp.</p>
@@ -180,7 +188,7 @@
 </section>
 
 <section class="qh-svc qh-wrap" id="automatizaciones" aria-labelledby="t2">
-  <div class="qh-vis" aria-hidden="true"><span class="qh-ej">EJEMPLO</span>
+  <div class="qh-vis" aria-hidden="true" data-reveal="zoom"><span class="qh-ej">EJEMPLO</span>
     <div class="ch" id="qh-chat">
       <div class="ch-head"><i></i><div>Tu negocio<small>en línea</small></div></div>
       <div class="ch-m in">Hola, ¿tienen turno para mañana?</div>
@@ -190,7 +198,7 @@
       <div class="ch-typing"><b></b><b></b><b></b></div>
     </div>
   </div>
-  <div class="qh-txt">
+  <div class="qh-txt" data-reveal style="--d:.15s">
     <p class="qh-mono">Automatizaciones</p>
     <h2 id="t2" class="qh-serif">Tu negocio contesta aunque estés ocupado</h2>
     <p>Responde mensajes, toma pedidos, da turnos y manda recordatorios de pago.</p>
@@ -199,7 +207,7 @@
 </section>
 
 <section class="qh-svc qh-wrap" id="sistemas" aria-labelledby="t3">
-  <div class="qh-vis" aria-hidden="true"><span class="qh-ej">EJEMPLO</span>
+  <div class="qh-vis" aria-hidden="true" data-reveal="zoom"><span class="qh-ej">EJEMPLO</span>
     <div class="pn" id="qh-panel">
       <div class="pn-row"><span>Estado</span><div class="pn-sem"><i></i><i></i><i></i></div></div>
       <p class="pn-label">Clientes al día</p><div class="pn-bar"><b></b></div>
@@ -207,7 +215,7 @@
       <p class="pn-label">Vencimientos cubiertos</p><div class="pn-bar"><b></b></div>
     </div>
   </div>
-  <div class="qh-txt">
+  <div class="qh-txt" data-reveal style="--d:.15s">
     <p class="qh-mono">Sistemas a medida</p>
     <h2 id="t3" class="qh-serif">Todo tu negocio en un solo lugar</h2>
     <p>Cuando la planilla ya no alcanza, armamos el sistema para cómo trabajás vos.</p>
@@ -216,31 +224,31 @@
 </section>
 
 <section class="qh-steps qh-wrap" aria-labelledby="t4">
-  <p class="qh-mono">Cómo trabajamos</p>
-  <h2 id="t4" class="qh-anton">Todo empieza con una charla</h2>
+  <p class="qh-mono" data-reveal>Cómo trabajamos</p>
+  <h2 id="t4" class="qh-anton" data-reveal style="--d:.08s">Todo empieza con una charla</h2>
   <ol class="qh-path" style="padding:0;margin:0 auto">
-    <li><strong>Charlamos</strong><span>Por WhatsApp</span></li>
-    <li><strong>Te proponemos</strong><span>Qué, cómo y cuánto</span></li>
-    <li><strong>Lo armamos</strong><span>A medida</span></li>
-    <li><strong>Lo publicamos</strong><span>Listo para que te encuentren</span></li>
+    <li data-reveal style="--d:0.12s"><strong>Charlamos</strong><span>Por WhatsApp</span></li>
+    <li data-reveal style="--d:0.24s"><strong>Te proponemos</strong><span>Qué, cómo y cuánto</span></li>
+    <li data-reveal style="--d:0.36s"><strong>Lo armamos</strong><span>A medida</span></li>
+    <li data-reveal style="--d:0.48s"><strong>Lo publicamos</strong><span>Listo para que te encuentren</span></li>
   </ol>
 </section>
 
 <section class="qh-faq qh-wrap" aria-labelledby="t5">
-  <p class="qh-mono">Preguntas frecuentes</p>
-  <h2 id="t5" class="qh-anton">Lo que más nos preguntan</h2>
+  <p class="qh-mono" data-reveal>Preguntas frecuentes</p>
+  <h2 id="t5" class="qh-anton" data-reveal style="--d:.08s">Lo que más nos preguntan</h2>
   <div class="qh-faq-list">
-    <details><summary>¿Cuánto cuesta una página web?</summary><p>Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio.</p></details>
-    <details><summary>¿Mi página va a aparecer en Google?</summary><p>La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo.</p></details>
-    <details><summary>¿Sirve para mi rubro?</summary><p>Sí. Trabajamos con comercios y profesionales de cualquier rubro, y cada trabajo se arma a medida.</p></details>
-    <details><summary>¿Qué es una automatización?</summary><p>Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos y mandar recordatorios de turno o de pago.</p></details>
-    <details><summary>¿Qué necesito para empezar?</summary><p>Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla.</p></details>
+    <details data-reveal style="--d:0.08s"><summary>¿Cuánto cuesta una página web?</summary><p>Una landing cuesta US$ 100. Una página web de varias secciones, desde US$ 250. Una tienda online, desde US$ 450. Las automatizaciones y los sistemas se presupuestan según lo que necesite cada negocio.</p></details>
+    <details data-reveal style="--d:0.16s"><summary>¿Mi página va a aparecer en Google?</summary><p>La armamos con todo lo que Google necesita para entenderla: títulos claros, descripción, datos del negocio, velocidad y versión para celular. El puesto también depende de la competencia y del tiempo, por eso no prometemos un lugar fijo.</p></details>
+    <details data-reveal style="--d:0.24s"><summary>¿Sirve para mi rubro?</summary><p>Sí. Trabajamos con comercios y profesionales de cualquier rubro, y cada trabajo se arma a medida.</p></details>
+    <details data-reveal style="--d:0.32s"><summary>¿Qué es una automatización?</summary><p>Es una tarea que se hace sola en lugar de hacerla a mano: responder mensajes, tomar pedidos, agendar turnos y mandar recordatorios de turno o de pago.</p></details>
+    <details data-reveal style="--d:0.40s"><summary>¿Qué necesito para empezar?</summary><p>Escribirnos por WhatsApp y contarnos qué hace tu negocio y qué te está costando. Todo empieza con una charla.</p></details>
   </div>
 </section>
 
 <section class="qh-end qh-wrap">
-  <h2 class="qh-anton">Hablemos.</h2>
-  <a class="qh-cta" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>Escribinos por WhatsApp</span></a>
+  <h2 class="qh-anton" data-reveal="zoom">Hablemos.</h2>
+  <a class="qh-cta" data-reveal style="--d:.15s" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20consultar%20por%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener"><i aria-hidden="true"></i><span>Escribinos por WhatsApp</span></a>
 </section>
 
 <footer class="qh-foot qh-wrap">
@@ -253,14 +261,16 @@
 (()=>{const root=document.getElementById('qh');if(!root)return;
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* Nodos de fondo */
-const cv=root.querySelector('.qh-bg'),ctx=cv.getContext('2d');let W,H,ns=[];
+const cv=root.querySelector('.qh-bg'),ctx=cv.getContext('2d');let W,H,ns=[],mouse=null;
+root.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=root.getBoundingClientRect();mouse={x:e.clientX-r.left,y:e.clientY-r.top};});root.addEventListener('pointerleave',()=>mouse=null);
 function size(){const d=Math.min(devicePixelRatio||1,2);W=root.clientWidth;H=root.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
- const n=Math.round(Math.min(90,Math.max(30,W*H/22000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.22,vy:(Math.random()-.5)*.22,r:Math.random()*1.4+.8}));}
-function draw(){ctx.clearRect(0,0,W,H);const L=Math.min(140,W/4);
+ const n=Math.round(Math.min(260,Math.max(40,W*H/14000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:Math.random()*2+1.5}));}
+function draw(){ctx.clearRect(0,0,W,H);const L=120,R=180;
  for(const p of ns){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
  for(let i=0;i<ns.length;i++){const a=ns[i];for(let j=i+1;j<ns.length;j++){const b=ns[j],dd=Math.hypot(a.x-b.x,a.y-b.y);
-  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.18})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
-  ctx.fillStyle='rgba(167,220,197,.75)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
+  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.3})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+  if(mouse){const md=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(md<R){ctx.strokeStyle=`rgba(167,220,197,${(1-md/R)*.6})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();ctx.lineWidth=1;}}
+  ctx.fillStyle='rgba(167,220,197,.85)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
  requestAnimationFrame(draw);}
 size();new ResizeObserver(size).observe(root);requestAnimationFrame(draw);
 
@@ -284,4 +294,9 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return
  if(e.target===chat)runChat();if(e.target===panel){tick();if(!reduce)setInterval(tick,2600);}}),{threshold:.3});
 io.observe(chat);io.observe(panel);
 })();
+
+/* Efectos al hacer scroll */
+(()=>{const els=document.querySelectorAll('.qh [data-reveal]');if(matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(e=>e.classList.add('in'));return;}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+els.forEach(e=>io.observe(e));})();
 </script>

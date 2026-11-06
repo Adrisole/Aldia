@@ -37,13 +37,21 @@
 .at-info span{font-family:"DM Sans",sans-serif!important}
 .at{position:relative;isolation:isolate}
 .at-bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
+
+/* Efectos al hacer scroll */
+.at [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.8,.2,1) var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.at [data-reveal="left"]{transform:translateX(-48px)}
+.at [data-reveal="right"]{transform:translateX(48px)}
+.at [data-reveal="zoom"]{transform:scale(.92)}
+.at [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.at [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 <section class="at" aria-labelledby="at-t">
   <canvas class="at-bg" aria-hidden="true"></canvas>
-  <p class="at-label">Portfolio</p>
-  <h2 id="at-t"><span class="t1">Trabajos</span><span class="t2">ya hechos</span></h2>
+  <p class="at-label" data-reveal>Portfolio</p>
+  <h2 id="at-t" data-reveal style="--d:.08s"><span class="t1">Trabajos</span><span class="t2">ya hechos</span></h2>
 
-  <div class="at-stage" id="at-stage" aria-roledescription="carrusel" aria-live="polite">
+  <div data-reveal="zoom" style="--d:.2s"><div class="at-stage" id="at-stage" aria-roledescription="carrusel" aria-live="polite">
     <a class="at-card" href="#atomica-monotributistas" aria-label="Atómica para monotributistas">
       <img src="https://atomica.click/wp-content/uploads/2026/11/Captura-de-pantalla-2026-11-06-063827.png" alt="Pantalla de ingreso de Atómica, sistema de gestión para monotributistas" style="object-position:34% 30%" loading="lazy">
       <div class="at-info"><small>Sistema a medida</small><strong>Atómica para monotributistas</strong><span><i></i>Ver trabajo</span></div>
@@ -57,7 +65,7 @@
       <div class="at-info"><small>Plataforma web</small><strong>ChangaRed · Servicios</strong><span><i></i>Ver trabajo</span></div>
     </a>
   </div>
-  <div class="at-dots" id="at-dots"></div>
+  <div class="at-dots" id="at-dots"></div></div>
   
 </section>
 
@@ -96,12 +104,17 @@ stage.addEventListener('mouseenter',()=>clearInterval(timer));stage.addEventList
 (()=>{const sec=document.querySelector('.at'),cv=sec.querySelector('.at-bg'),ctx=cv.getContext('2d');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;let W,H,ns=[];
 function size(){const d=Math.min(devicePixelRatio||1,2);W=sec.clientWidth;H=sec.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0);
- const n=Math.round(Math.min(60,Math.max(24,W*H/16000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.5+.9}));}
-function draw(){ctx.clearRect(0,0,W,H);const L=Math.min(150,W/4);
+ const n=Math.round(Math.min(200,Math.max(40,W*H/14000)));ns=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:Math.random()*2+1.5}));}
+function draw(){ctx.clearRect(0,0,W,H);const L=120;
  for(const p of ns){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
  for(let i=0;i<ns.length;i++){const a=ns[i];for(let j=i+1;j<ns.length;j++){const b=ns[j],dd=Math.hypot(a.x-b.x,a.y-b.y);
-  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.22})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+  if(dd<L){ctx.strokeStyle=`rgba(167,220,197,${(1-dd/L)*.3})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
   ctx.fillStyle='rgba(167,220,197,.85)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
  requestAnimationFrame(draw);}
 size();new ResizeObserver(size).observe(sec);requestAnimationFrame(draw);})();
+
+/* Efectos al hacer scroll */
+(()=>{const els=document.querySelectorAll('.at [data-reveal]');if(matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(e=>e.classList.add('in'));return;}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+els.forEach(e=>io.observe(e));})();
 </script>

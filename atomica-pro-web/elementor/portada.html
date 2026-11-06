@@ -42,6 +42,14 @@
 
 /* Logo: el JPG tiene fondo, por eso va en un círculo claro */
 .logo-ico{width:40px!important;height:40px!important;border-radius:50%;object-fit:cover;background:#F3E6CF;margin-right:10px;vertical-align:middle;flex:none}
+
+/* Efectos al hacer scroll */
+.ap [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.2,.8,.2,1) var(--d,0s),transform .9s cubic-bezier(.2,.8,.2,1) var(--d,0s)}
+.ap [data-reveal="left"]{transform:translateX(-48px)}
+.ap [data-reveal="right"]{transform:translateX(48px)}
+.ap [data-reveal="zoom"]{transform:scale(.92)}
+.ap [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.ap [data-reveal]{opacity:1!important;transform:none!important;transition:none!important}}
 </style>
 <section class="ap" id="ap">
   <canvas aria-hidden="true"></canvas>
@@ -50,10 +58,10 @@
     <a href="https://atomica.click/que-hacemos/">Qué hacemos</a>
   </header>
   <div class="ap-hero">
-    <p class="ap-eyebrow">Páginas web · Automatizaciones · Sistemas a medida</p>
-    <h1><span class="t1">Que te encuentren,</span><span class="t2">que vendas y que te sobre tiempo<span class="dot" aria-hidden="true"></span></span></h1>
-    <p class="ap-sub">Páginas web, automatizaciones y sistemas a medida para comercios y profesionales. Para que aparezcas en Google, te lleguen consultas al WhatsApp y dejes de hacer todo a mano.</p>
-    <a class="ap-cta" id="ap-cta" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener">
+    <p class="ap-eyebrow" data-reveal>Páginas web · Automatizaciones · Sistemas a medida</p>
+    <h1 data-reveal style="--d:.12s"><span class="t1">Que te encuentren,</span><span class="t2">que vendas y que te sobre tiempo<span class="dot" aria-hidden="true"></span></span></h1>
+    <p class="ap-sub" data-reveal style="--d:.3s">Páginas web, automatizaciones y sistemas a medida para comercios y profesionales. Para que aparezcas en Google, te lleguen consultas al WhatsApp y dejes de hacer todo a mano.</p>
+    <a class="ap-cta" id="ap-cta" data-reveal style="--d:.45s" href="https://wa.me/5493764240063?text=Hola%2C%20quiero%20una%20p%C3%A1gina%20para%20mi%20negocio" target="_blank" rel="noopener">
       <i class="ap-node" aria-hidden="true"></i><span>Hablemos por WhatsApp</span>
     </a>
   </div>
@@ -71,14 +79,14 @@ const root=document.getElementById('ap'),cv=root.querySelector('canvas'),ctx=cv.
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 let W,H,dpr,nodes=[],pull=0,pullTarget=0,mouse=null;
 function size(){dpr=Math.min(devicePixelRatio||1,2);W=root.clientWidth;H=root.clientHeight;cv.width=W*dpr;cv.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
-  const n=Math.round(Math.min(70,Math.max(28,W*H/16000)));nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.6+1}));}
+  const n=Math.round(Math.min(200,Math.max(40,W*H/14000)));nodes=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*1.2,vy:(Math.random()-.5)*1.2,r:Math.random()*2+1.5}));}
 function center(){const r=cta.querySelector('.ap-node').getBoundingClientRect(),b=root.getBoundingClientRect();return{x:r.left-b.left+r.width/2,y:r.top-b.top+r.height/2};}
 function draw(){
-  pull+=(pullTarget-pull)*.12;ctx.clearRect(0,0,W,H);const c=center(),L=Math.min(150,W/4);
+  pull+=(pullTarget-pull)*.12;ctx.clearRect(0,0,W,H);const c=center(),L=120;
   for(const p of nodes){if(!reduce){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;}}
   for(let i=0;i<nodes.length;i++){const a=nodes[i];
-    for(let j=i+1;j<nodes.length;j++){const b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){ctx.strokeStyle=`rgba(167,220,197,${(1-d/L)*.22})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
-    if(mouse){const d=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(d<L*1.2){ctx.strokeStyle=`rgba(167,220,197,${(1-d/(L*1.2))*.35})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
+    for(let j=i+1;j<nodes.length;j++){const b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<L){ctx.strokeStyle=`rgba(167,220,197,${(1-d/L)*.3})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}
+    if(mouse){const d=Math.hypot(a.x-mouse.x,a.y-mouse.y);if(d<L*1.5){ctx.strokeStyle=`rgba(167,220,197,${(1-d/(L*1.5))*.6})`;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke();}}
     if(pull>.01){const d=Math.hypot(a.x-c.x,a.y-c.y),R=Math.max(W,H)*.45;if(d<R){ctx.strokeStyle=`rgba(162,75,255,${pull*(1-d/R)*.7})`;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(c.x,c.y);ctx.stroke();}}
     ctx.fillStyle='rgba(167,220,197,.85)';ctx.beginPath();ctx.arc(a.x,a.y,a.r,0,7);ctx.fill();}
   requestAnimationFrame(draw);}
@@ -93,4 +101,9 @@ const steps=[...root.querySelectorAll('.ap-step')],lines=[...root.querySelectorA
 function tick(){steps.forEach((s,i)=>s.classList.toggle('on',i<=k));lines.forEach((l,i)=>l.classList.toggle('on',i<k));k=(k+1)%(steps.length+1);}
 if(reduce){steps.forEach(s=>s.classList.add('on'));lines.forEach(l=>l.classList.add('on'));}else{tick();setInterval(tick,900);}
 })();
+
+/* Efectos al hacer scroll */
+(()=>{const els=document.querySelectorAll('.ap [data-reveal]');if(matchMedia('(prefers-reduced-motion: reduce)').matches){els.forEach(e=>e.classList.add('in'));return;}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+els.forEach(e=>io.observe(e));})();
 </script>
